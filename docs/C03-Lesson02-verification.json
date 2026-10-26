@@ -1,0 +1,341 @@
+{
+  "verification_date": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "scope": "C03 Lesson02；本地缓存、CPU float32、用户课堂代码与四题参考；不训练、不生成、不评估生成质量",
+  "provenance": "用户课堂文件仅规范模型名及两处打印文字；参考答案与验证器为助手补充；索要答案按约定接受为私下完成确认",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "lesson02_sha256": "76b5eab095cdb08f86c2ec10e4fc480c0e404b710dbde43a8b39464c09814acd",
+  "checks_passed": 26,
+  "checks": [
+    {
+      "name": "用户课堂文件完成实际前向",
+      "passed": true
+    },
+    {
+      "name": "课堂固定模型和 revision",
+      "passed": true
+    },
+    {
+      "name": "课堂文本 ID 与固定版本一致",
+      "passed": true
+    },
+    {
+      "name": "课堂 logits 为 [1,5,151936]",
+      "passed": true
+    },
+    {
+      "name": "课堂输出有限且未记录梯度",
+      "passed": true
+    },
+    {
+      "name": "模型架构与输出头正确",
+      "passed": true
+    },
+    {
+      "name": "结构配置符合固定权重",
+      "passed": true
+    },
+    {
+      "name": "参数量符合实际加载",
+      "passed": true
+    },
+    {
+      "name": "CPU float32 与 eval 状态正确",
+      "passed": true
+    },
+    {
+      "name": "分词器编号空间可被输出词表覆盖",
+      "passed": true
+    },
+    {
+      "name": "三条文本真实 Token 长度符合预期",
+      "passed": true
+    },
+    {
+      "name": "文本1：输入与输出形状",
+      "passed": true
+    },
+    {
+      "name": "文本1：编号、Mask 与设备类型",
+      "passed": true
+    },
+    {
+      "name": "文本1：实际输出有限且无梯度",
+      "passed": true
+    },
+    {
+      "name": "文本2：输入与输出形状",
+      "passed": true
+    },
+    {
+      "name": "文本2：编号、Mask 与设备类型",
+      "passed": true
+    },
+    {
+      "name": "文本2：实际输出有限且无梯度",
+      "passed": true
+    },
+    {
+      "name": "文本3：输入与输出形状",
+      "passed": true
+    },
+    {
+      "name": "文本3：编号、Mask 与设备类型",
+      "passed": true
+    },
+    {
+      "name": "文本3：实际输出有限且无梯度",
+      "passed": true
+    },
+    {
+      "name": "eval 保留参数梯度开关",
+      "passed": true
+    },
+    {
+      "name": "eval 普通前向仍记录梯度",
+      "passed": true
+    },
+    {
+      "name": "inference_mode 禁用输出梯度记录",
+      "passed": true
+    },
+    {
+      "name": "Linear 两种模式数值一致",
+      "passed": true
+    },
+    {
+      "name": "浮点 input_ids 实际被拒绝",
+      "passed": true
+    },
+    {
+      "name": "未展开字典实际被拒绝",
+      "passed": true
+    }
+  ],
+  "classroom": {
+    "input_shape": [
+      1,
+      5
+    ],
+    "logits_shape": [
+      1,
+      5,
+      151936
+    ],
+    "seconds_before_first_forward": 0.7919649579998804,
+    "forward_seconds": 0.2941367499988701,
+    "stdout": "架构类型： qwen2\n表示宽度 896\n层数 24\n输出词表维度 151936\n模型类： Qwen2ForCausalLM\n训练模式标记： False\n加载耗时： 0.7900749580003321\n第一个参数的设备： cpu\n第一个参数的类型： torch.float32\n参数总数： 494032768\n参数存储 GiB： 1.8404154777526855\ninput_ids： tensor([[104100,  51154,  50410,  80094,   1773]])\ninput_ids shape = (1, 5) dtype = torch.int64 device = cpu\nattention_mask shape = (1, 5) dtype = torch.int64 device = cpu\n输出对象类型： CausalLMOutputWithPast\nlogits shape： (1, 5, 151936)\nlogits dtype： torch.float32\nlogits device： cpu\n是否记录梯度： False\n输出是否全部为有限值： True\n前向耗时： 0.2941367499988701\n"
+  },
+  "answers": {
+    "q1": {
+      "model_id": "Qwen/Qwen2.5-0.5B",
+      "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config_class": "Qwen2Config",
+      "model_class": "Qwen2ForCausalLM",
+      "tokenizer_class": "Qwen2Tokenizer",
+      "model_type": "qwen2",
+      "hidden_size": 896,
+      "num_hidden_layers": 24,
+      "vocab_size": 151936,
+      "tokenizer_length": 151665,
+      "parameter_count": 494032768,
+      "parameter_storage_gib": 1.8404154777526855,
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "training": false
+    },
+    "q2": [
+      {
+        "text": "你好。",
+        "tokens": [
+          "ä½łå¥½",
+          "ãĢĤ"
+        ],
+        "input_ids": [
+          [
+            108386,
+            1773
+          ]
+        ],
+        "token_count": 2,
+        "input_shape": [
+          1,
+          2
+        ],
+        "attention_mask": [
+          [
+            1,
+            1
+          ]
+        ],
+        "input_dtype": "torch.int64",
+        "input_device": "cpu",
+        "output_class": "CausalLMOutputWithPast",
+        "logits_shape": [
+          1,
+          2,
+          151936
+        ],
+        "logits_dtype": "torch.float32",
+        "logits_device": "cpu",
+        "requires_grad": false,
+        "finite": true
+      },
+      {
+        "text": "我想查询订单金额。",
+        "tokens": [
+          "æĪĳæĥ³",
+          "æŁ¥è¯¢",
+          "è®¢åįķ",
+          "éĩĳé¢Ŀ",
+          "ãĢĤ"
+        ],
+        "input_ids": [
+          [
+            104100,
+            51154,
+            50410,
+            80094,
+            1773
+          ]
+        ],
+        "token_count": 5,
+        "input_shape": [
+          1,
+          5
+        ],
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "input_dtype": "torch.int64",
+        "input_device": "cpu",
+        "output_class": "CausalLMOutputWithPast",
+        "logits_shape": [
+          1,
+          5,
+          151936
+        ],
+        "logits_dtype": "torch.float32",
+        "logits_device": "cpu",
+        "requires_grad": false,
+        "finite": true
+      },
+      {
+        "text": "请统计最近一个月各部门的订单总金额。",
+        "tokens": [
+          "è¯·",
+          "ç»Łè®¡",
+          "æľĢè¿ĳ",
+          "ä¸Ģä¸ªæľĪ",
+          "åĲĦéĥ¨éĹ¨",
+          "çļĦ",
+          "è®¢åįķ",
+          "æĢ»",
+          "éĩĳé¢Ŀ",
+          "ãĢĤ"
+        ],
+        "input_ids": [
+          [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094,
+            1773
+          ]
+        ],
+        "token_count": 10,
+        "input_shape": [
+          1,
+          10
+        ],
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "input_dtype": "torch.int64",
+        "input_device": "cpu",
+        "output_class": "CausalLMOutputWithPast",
+        "logits_shape": [
+          1,
+          10,
+          151936
+        ],
+        "logits_dtype": "torch.float32",
+        "logits_device": "cpu",
+        "requires_grad": false,
+        "finite": true
+      }
+    ],
+    "q3": {
+      "layer_training": false,
+      "input_requires_grad": false,
+      "weight_requires_grad": true,
+      "ordinary_requires_grad": true,
+      "ordinary_grad_fn": "AddmmBackward0",
+      "inference_requires_grad": false,
+      "inference_grad_fn": null,
+      "outputs_equal": true
+    },
+    "q4": [
+      {
+        "mistake": "把 input_ids 转成 float32",
+        "reason": "input_ids 是 Embedding 查询的整数索引，不是模型浮点参数。",
+        "correction": "inputs[\"input_ids\"] = inputs[\"input_ids\"].to(dtype=torch.long)"
+      },
+      {
+        "mistake": "model(inputs)",
+        "reason": "把整个字典作为第一个位置参数传入，不能自动映射各输入字段。",
+        "correction": "outputs = model(**inputs, use_cache=False)"
+      },
+      {
+        "mistake": "想加载预训练权重，却使用 from_config(config)",
+        "reason": "from_config 根据结构建立模型并初始化参数，不会读取预训练权重。",
+        "correction": "使用 AutoModelForCausalLM.from_pretrained，固定 MODEL_ID 和 REVISION。"
+      },
+      {
+        "mistake": "只调用 eval()，希望自动关闭梯度记录",
+        "reason": "eval 切换训练/评估行为，不改变 autograd 的开关。",
+        "correction": "先 model.eval()，再在 with torch.inference_mode(): 中执行前向。"
+      }
+    ]
+  },
+  "demonstrated_errors": {
+    "float_input_ids": {
+      "type": "RuntimeError",
+      "message": "Expected tensor for argument #1 'indices' to have one of the following scalar types: Long, Int; but got torch.FloatTensor instead (while checking arguments for embedding)"
+    },
+    "unexpanded_inputs": {
+      "type": "TypeError",
+      "message": "embedding(): argument 'indices' (position 2) must be Tensor, not dict"
+    }
+  }
+}
