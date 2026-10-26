@@ -2,21 +2,33 @@
 
 从真实 Tokenizer 接续 Transformer 基础，学习 Hugging Face 模型推理与文本生成。
 
-更新日期：2026-10-26（Asia/Shanghai）。C03 Lesson01–02 已授课、参考答案已给出，固定样例复核通过；索要答案按约定接受为私下完成确认。Lesson03–08 尚未开始，下一课为 Lesson03。
+更新日期：2026-10-26（Asia/Shanghai）。C03 Lesson01–03 已授课、参考答案已给出，固定样例复核通过；索要答案按约定接受为私下完成确认。Lesson04–08 尚未开始，下一课为 Lesson04。
 
-## 当前课程：Lesson02
+## 当前课程：Lesson03
 
-配置与配套 Tokenizer → 预训练权重 → 设备和类型 → eval 与推理模式 → 一次前向 → logits `[B,T,V]`。
+最终隐藏表示 `[B,T,D]` → 词表头 → logits `[B,T,V]` → 最后位置 → 全词表概率 → top5 与最高分编号。
 
-- [讲义与教师代码说明](docs/C03-Lesson02-notes.md)
-- [四道作业及完整参考答案](docs/C03-Lesson02-homework.md)
-- [验收与来源说明](docs/C03-Lesson02-acceptance.md)
-- [真实运行记录](docs/C03-Lesson02-verification.json)
-- [Lesson02→03 交接](docs/C03-Lesson02-handoff.md)
+- [讲义与课堂说明](docs/C03-Lesson03-notes.md)
+- [四道作业及完整参考答案](docs/C03-Lesson03-homework.md)
+- [验收与来源说明](docs/C03-Lesson03-acceptance.md)
+- [真实运行记录](docs/C03-Lesson03-verification.json)
+- [Lesson03→04 交接](docs/C03-Lesson03-handoff.md)
 - [通用课程交接](docs/handoff.md)
 - [C03 八节课表](docs/C03-syllabus.md)
 
-用户课堂文件 `hugging_learn/lesson02.py` 在本轮修改前已成功完成前向；仅规范模型名及两处打印文字，保留注释和代码结构。参考答案、辅助入口、讲义与验证器为助手补充，分别记录来源。
+用户课堂文件 `hugging_learn/lesson03.py` 的内容和注释逐字节保留。其输入没有句号，T=9；带句号作业版本 T=10，两组结果分别记录。四题参考、讲义和验证器为助手补充。31 项检查通过，手动输出头与模型 logits 差异为 0。
+
+## Lesson02 资料
+
+配置与 Tokenizer → 预训练权重 → 设备和类型 → eval 与推理模式 → 一次前向。
+
+- [讲义](docs/C03-Lesson02-notes.md)
+- [四题答案](docs/C03-Lesson02-homework.md)
+- [验收](docs/C03-Lesson02-acceptance.md)
+- [运行记录](docs/C03-Lesson02-verification.json)
+- [Lesson02→03 历史交接](docs/C03-Lesson02-handoff.md)
+
+本轮一并同步用户对 `lesson02.py` 两行参数的缩进整理，行为不变；历史验收记录保留。
 
 ## Lesson01 资料
 
@@ -44,9 +56,12 @@ python verify.py --report /tmp/c03-lesson01-verification.json
 python -m hugging_learn.lesson02
 python -m hugging_learn.homework.lesson02_answers
 python verify_lesson02.py --report /tmp/c03-lesson02-verification.json
+python -m hugging_learn.lesson03
+python -m hugging_learn.homework.lesson03_answers
+python verify_lesson03.py --report /tmp/c03-lesson03-verification.json
 ```
 
-当前机器已有两课缓存，以上入口只读本地文件。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
+当前机器已有 Lesson01–03 所需缓存，以上入口只读本地文件。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
 
 ```sh
 python -m pip install -r requirements.txt
@@ -60,8 +75,9 @@ python -m hugging_learn.download_model
 
 - Lesson01：`google-bert/bert-base-chinese`，revision `8f23c25b06e129b6c986331a13d8d025a92cf0ea`，右侧补齐和截断。历史 27 项离线检查通过，仅涉及分词和张量。
 - Lesson02：`Qwen/Qwen2.5-0.5B`，revision `060db6499f32faf8b98477b0a26969ef7d8b9987`，使用其配套分词器，CPU float32。26 项检查通过；课堂输入 `[1,5]`，logits `[1,5,151936]`。作业三条文本 T 为 2、5、10。
+- Lesson03：沿用 Lesson02 的固定模型；31 项检查通过，用户课堂 T=9，作业 T=[2,5,10]；float64 softmax 仅用于观察概率。
 
-Lesson02 已实际加载模型并前向；没有训练、逐 Token 生成或生成效果评估。助手参考代码运行通过与用户独立实现分别记录。
+截至 Lesson03 已实际加载模型并前向、分析候选 Token；没有训练、生成循环或生成效果评估。助手参考代码运行通过与用户独立实现分别记录。
 
 聊天为主要课堂，采用知识点、教师代码与解释、易错点、统一作业的节奏。后续课程和 GitHub 同步按用户指令推进。
 

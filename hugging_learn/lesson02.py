@@ -30,8 +30,8 @@ print("输出词表维度", config.vocab_size)
 
 tokenizer = AutoTokenizer.from_pretrained(
     MODEL_ID,
-revision=REVISION,
-local_files_only=True,
+    revision=REVISION,
+    local_files_only=True,
 )
 
 load_start = time.perf_counter()

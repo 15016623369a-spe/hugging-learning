@@ -1,0 +1,549 @@
+{
+  "verification_date": "2026-10-26",
+  "timezone": "Asia/Shanghai",
+  "scope": "C03 Lesson03 用户课堂、前缀对照与四题参考；本地缓存、CPU；不训练、不执行生成循环",
+  "provenance": "用户 Lesson03 文件逐字节保留；Lesson02 用户缩进改动保留；参考答案、验证器和说明为助手补充；索要答案按约定接受为私下完成确认",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "source_sha256": {
+    "hugging_learn/lesson03.py": "29f5d9ec0a7eb8a12ac1f25c9efd242f7fe4f3c560f449f87319bcbb77e20d1d",
+    "hugging_learn/lesson02.py": "7a312978d637a4aa80c4a9d57a48d0b89f6d1a0106ac9c35ab8191c7db9ac2bc",
+    "hugging_learn/lesosn01.py": "07206df58b7dcd8415b11664025c51ded13c3d6c1fca4eaa33ef5d803db07c81"
+  },
+  "checks_passed": 31,
+  "checks": [
+    {
+      "name": "用户课堂入口实际执行",
+      "passed": true
+    },
+    {
+      "name": "模型结构符合固定版本",
+      "passed": true
+    },
+    {
+      "name": "课堂模型为 CPU float32 且已 eval",
+      "passed": true
+    },
+    {
+      "name": "无句号课堂文本编码为九个固定编号",
+      "passed": true
+    },
+    {
+      "name": "课堂输入与 Mask 为 [1,9] 且没有 PAD",
+      "passed": true
+    },
+    {
+      "name": "最终隐藏表示与层数正确",
+      "passed": true
+    },
+    {
+      "name": "词表输出头形状与 bias 正确",
+      "passed": true
+    },
+    {
+      "name": "手动输出头还原实际 logits",
+      "passed": true
+    },
+    {
+      "name": "课堂 logits 形状、类型和有限值正确",
+      "passed": true
+    },
+    {
+      "name": "最后位置切片正确",
+      "passed": true
+    },
+    {
+      "name": "完整词表 float64 概率归一化",
+      "passed": true
+    },
+    {
+      "name": "前五候选对应原词表概率且有序",
+      "passed": true
+    },
+    {
+      "name": "logits、概率与 top1 的最高分编号一致",
+      "passed": true
+    },
+    {
+      "name": "不同长度前缀结果在 float32 容差内一致",
+      "passed": true
+    },
+    {
+      "name": "同长度改变后续 Token 不影响前两个位置",
+      "passed": true
+    },
+    {
+      "name": "作业1的七组形状正确",
+      "passed": true
+    },
+    {
+      "name": "作业2三条文本长度为 2、5、10",
+      "passed": true
+    },
+    {
+      "name": "作业2文本1：输入、隐藏和输出形状",
+      "passed": true
+    },
+    {
+      "name": "作业2文本1：整数输入、有限输出与无梯度",
+      "passed": true
+    },
+    {
+      "name": "作业2文本1：全词表与前五项概率",
+      "passed": true
+    },
+    {
+      "name": "作业2文本2：输入、隐藏和输出形状",
+      "passed": true
+    },
+    {
+      "name": "作业2文本2：整数输入、有限输出与无梯度",
+      "passed": true
+    },
+    {
+      "name": "作业2文本2：全词表与前五项概率",
+      "passed": true
+    },
+    {
+      "name": "作业2文本3：输入、隐藏和输出形状",
+      "passed": true
+    },
+    {
+      "name": "作业2文本3：整数输入、有限输出与无梯度",
+      "passed": true
+    },
+    {
+      "name": "作业2文本3：全词表与前五项概率",
+      "passed": true
+    },
+    {
+      "name": "作业2最高分编号符合三个固定样例",
+      "passed": true
+    },
+    {
+      "name": "作业3完整 softmax 数值正确",
+      "passed": true
+    },
+    {
+      "name": "作业3最高分索引为 0",
+      "passed": true
+    },
+    {
+      "name": "作业3原始前两项概率合计正确",
+      "passed": true
+    },
+    {
+      "name": "作业3重新归一化的结果与原始概率不同",
+      "passed": true
+    }
+  ],
+  "classroom": {
+    "text": "请统计最近一个月各部门的订单总金额",
+    "input_ids": [
+      [
+        14880,
+        100787,
+        104044,
+        105033,
+        106852,
+        9370,
+        50410,
+        59743,
+        80094
+      ]
+    ],
+    "input_shape": [
+      1,
+      9
+    ],
+    "hidden_shape": [
+      1,
+      9,
+      896
+    ],
+    "head_weight_shape": [
+      151936,
+      896
+    ],
+    "logits_shape": [
+      1,
+      9,
+      151936
+    ],
+    "head_max_abs_difference": 0.0,
+    "probability_sum": 0.9999999999999943,
+    "top5_probability_sum": 0.7223205321987762,
+    "top5": [
+      {
+        "token_id": 8997,
+        "raw_token": "ãĢĤĊ",
+        "decoded": "。\n",
+        "probability": 0.22629978710422582
+      },
+      {
+        "token_id": 33108,
+        "raw_token": "åĴĮ",
+        "decoded": "和",
+        "probability": 0.1529930604419838
+      },
+      {
+        "token_id": 90395,
+        "raw_token": "ï¼Įå¹¶",
+        "decoded": "，并",
+        "probability": 0.14475508043009816
+      },
+      {
+        "token_id": 3837,
+        "raw_token": "ï¼Į",
+        "decoded": "，",
+        "probability": 0.1160460655750774
+      },
+      {
+        "token_id": 3407,
+        "raw_token": "ãĢĤĊĊ",
+        "decoded": "。\n\n",
+        "probability": 0.08222653864739103
+      }
+    ],
+    "greedy_id": 8997,
+    "prefix_max_abs_difference": 0.00021779537200927734,
+    "prefix_tolerance": {
+      "rtol": 0.0001,
+      "atol": 0.0005
+    },
+    "changed_suffix_max_abs_difference": 0.0,
+    "flat_argmax_index": 1143646,
+    "flat_argmax_position_b_t_v": [
+      0,
+      7,
+      80094
+    ],
+    "stdout": "输入形状： (1, 9)\n最终隐藏表示： (1, 9, 896)\n输出头权重： (151936, 896)\nlogits： (1, 9, 151936)\n最后位置分数： (1, 151936)\n手动输出头与模型输出的最大差异： 0.0\n完整词表概率和： [0.9999999999999943]\nID = 8997 文本 = '。\\n' 概率 = 0.2263\nID = 33108 文本 = '和' 概率 = 0.152993\nID = 90395 文本 = '，并' 概率 = 0.144755\nID = 3837 文本 = '，' 概率 = 0.116046\nID = 3407 文本 = '。\\n\\n' 概率 = 0.082227\n最高分编号： 8997\n对应文本： '。\\n'\n"
+  },
+  "answers": {
+    "scope": "Lesson03 四题助手参考；实际离线前向与数值计算，不训练，不执行生成循环",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "device": "cpu",
+    "model_dtype": "torch.float32",
+    "probability_dtype": "torch.float64",
+    "hidden_size": 896,
+    "vocab_size": 151936,
+    "q1": {
+      "text": "你好。",
+      "token_count": 2,
+      "input_shape": [
+        1,
+        2
+      ],
+      "hidden_shape": [
+        1,
+        2,
+        896
+      ],
+      "logits_shape": [
+        1,
+        2,
+        151936
+      ],
+      "next_logits_shape": [
+        1,
+        151936
+      ],
+      "top_ids_shape": [
+        1,
+        5
+      ],
+      "top_probs_shape": [
+        1,
+        5
+      ],
+      "next_ids_shape": [
+        1
+      ]
+    },
+    "q2": [
+      {
+        "text": "你好。",
+        "input_ids": [
+          [
+            108386,
+            1773
+          ]
+        ],
+        "token_count": 2,
+        "input_shape": [
+          1,
+          2
+        ],
+        "hidden_shape": [
+          1,
+          2,
+          896
+        ],
+        "logits_shape": [
+          1,
+          2,
+          151936
+        ],
+        "next_logits_shape": [
+          1,
+          151936
+        ],
+        "top_ids_shape": [
+          1,
+          5
+        ],
+        "top_probs_shape": [
+          1,
+          5
+        ],
+        "next_ids_shape": [
+          1
+        ],
+        "input_dtype": "torch.int64",
+        "logits_dtype": "torch.float32",
+        "probability_dtype": "torch.float64",
+        "finite_logits": true,
+        "logits_requires_grad": false,
+        "probability_sum": 0.9999999999999863,
+        "top5_probability_sum": 0.5088168596769955,
+        "top5": [
+          {
+            "token_id": 35946,
+            "raw_token": "æĪĳ",
+            "decoded": "我",
+            "probability": 0.3168903918218515
+          },
+          {
+            "token_id": 109194,
+            "raw_token": "è¯·éĹ®",
+            "decoded": "请问",
+            "probability": 0.06239531194301612
+          },
+          {
+            "token_id": 104100,
+            "raw_token": "æĪĳæĥ³",
+            "decoded": "我想",
+            "probability": 0.05514854305309959
+          },
+          {
+            "token_id": 103998,
+            "raw_token": "åĮ»çĶŁ",
+            "decoded": "医生",
+            "probability": 0.04243862242064078
+          },
+          {
+            "token_id": 97611,
+            "raw_token": "æĪĳçļĦ",
+            "decoded": "我的",
+            "probability": 0.03194399043838759
+          }
+        ]
+      },
+      {
+        "text": "我想查询订单金额。",
+        "input_ids": [
+          [
+            104100,
+            51154,
+            50410,
+            80094,
+            1773
+          ]
+        ],
+        "token_count": 5,
+        "input_shape": [
+          1,
+          5
+        ],
+        "hidden_shape": [
+          1,
+          5,
+          896
+        ],
+        "logits_shape": [
+          1,
+          5,
+          151936
+        ],
+        "next_logits_shape": [
+          1,
+          151936
+        ],
+        "top_ids_shape": [
+          1,
+          5
+        ],
+        "top_probs_shape": [
+          1,
+          5
+        ],
+        "next_ids_shape": [
+          1
+        ],
+        "input_dtype": "torch.int64",
+        "logits_dtype": "torch.float32",
+        "probability_dtype": "torch.float64",
+        "finite_logits": true,
+        "logits_requires_grad": false,
+        "probability_sum": 0.9999999999999996,
+        "top5_probability_sum": 0.2307883431908722,
+        "top5": [
+          {
+            "token_id": 50410,
+            "raw_token": "è®¢åįķ",
+            "decoded": "订单",
+            "probability": 0.1149290666638808
+          },
+          {
+            "token_id": 35946,
+            "raw_token": "æĪĳ",
+            "decoded": "我",
+            "probability": 0.03597498127940186
+          },
+          {
+            "token_id": 14880,
+            "raw_token": "è¯·",
+            "decoded": "请",
+            "probability": 0.029468158190865488
+          },
+          {
+            "token_id": 18493,
+            "raw_token": "åľ¨",
+            "decoded": "在",
+            "probability": 0.02555683478357607
+          },
+          {
+            "token_id": 220,
+            "raw_token": "Ġ",
+            "decoded": " ",
+            "probability": 0.024859302273147976
+          }
+        ]
+      },
+      {
+        "text": "请统计最近一个月各部门的订单总金额。",
+        "input_ids": [
+          [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094,
+            1773
+          ]
+        ],
+        "token_count": 10,
+        "input_shape": [
+          1,
+          10
+        ],
+        "hidden_shape": [
+          1,
+          10,
+          896
+        ],
+        "logits_shape": [
+          1,
+          10,
+          151936
+        ],
+        "next_logits_shape": [
+          1,
+          151936
+        ],
+        "top_ids_shape": [
+          1,
+          5
+        ],
+        "top_probs_shape": [
+          1,
+          5
+        ],
+        "next_ids_shape": [
+          1
+        ],
+        "input_dtype": "torch.int64",
+        "logits_dtype": "torch.float32",
+        "probability_dtype": "torch.float64",
+        "finite_logits": true,
+        "logits_requires_grad": false,
+        "probability_sum": 0.9999999999999906,
+        "top5_probability_sum": 0.5154518143093079,
+        "top5": [
+          {
+            "token_id": 220,
+            "raw_token": "Ġ",
+            "decoded": " ",
+            "probability": 0.2597562900306734
+          },
+          {
+            "token_id": 84897,
+            "raw_token": "Ġå½ĵ",
+            "decoded": " 当",
+            "probability": 0.0936390735277711
+          },
+          {
+            "token_id": 4891,
+            "raw_token": "Ġå",
+            "decoded": " �",
+            "probability": 0.06548042319129523
+          },
+          {
+            "token_id": 6567,
+            "raw_token": "Ġæ",
+            "decoded": " �",
+            "probability": 0.05549307309792263
+          },
+          {
+            "token_id": 69058,
+            "raw_token": "Ġè¾ĵåħ¥",
+            "decoded": " 输入",
+            "probability": 0.041082954461645504
+          }
+        ]
+      }
+    ],
+    "q3": {
+      "scores": [
+        3.0,
+        1.0,
+        -1.0
+      ],
+      "full_probabilities": [
+        0.8668133321973347,
+        0.11731042782619835,
+        0.015876239976466762
+      ],
+      "argmax_index": 0,
+      "top2_original_probability_sum": 0.9841237600235331,
+      "softmax_of_first_two_scores": [
+        0.8807970779778823,
+        0.11920292202211755
+      ],
+      "renormalized_sum": 0.9999999999999999
+    },
+    "q4": {
+      "first_position": "outputs.logits[:, 0, :] 使用第一个位置，而非完整输入的最后位置。",
+      "time_softmax": "对 [B,T,V] 使用 dim=1 沿位置归一化，应沿词表维度 -1。",
+      "flat_argmax": "不指定 dim 会在整个张量展平后找最大值，返回扁平索引。",
+      "correct_code": [
+        "next_logits = outputs.logits[:, -1, :]",
+        "probs = torch.softmax(next_logits, dim=-1, dtype=torch.float64)",
+        "next_ids = next_logits.argmax(dim=-1)"
+      ]
+    }
+  }
+}

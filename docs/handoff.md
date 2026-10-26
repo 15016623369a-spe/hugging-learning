@@ -1,8 +1,8 @@
-# C03 课程交接（截至 Lesson02）
+# C03 课程交接（截至 Lesson03）
 
 更新日期：2026-10-26（Asia/Shanghai）。
 
-本文件保留 Lesson01 交接详情，并更新截至 Lesson02 的进度。当前接续文档为 [Lesson02→03 交接](C03-Lesson02-handoff.md)。2026-10-24 历史文件中的“Lesson02 尚未开始”不代表当前状态。
+本文件保留 Lesson01 交接详情和 Lesson02 历史结果，并更新截至 Lesson03 的进度。当前接续文档为 [Lesson03→04 交接](C03-Lesson03-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
 
 ## 1. 接续入口
 
@@ -10,7 +10,7 @@
 
 **C03 Lesson01 已讲授，四道作业答案已提供，用户索要答案按约定接受为私下完成确认；用户原课堂脚本已检查，27 项本地检查通过。** 原文件、助手补充和运行证据分别记录，不把参考答案当成用户原有独立实现。
 
-**最新接续位置：Lesson02 已讲授，本轮四题答案已给出，用户索要答案按约定接受为私下完成确认；课堂与参考代码完成 26 项检查。下一次要求“下一节课”时进入 Lesson03。** Lesson03–08 尚未开始。
+**最新接续位置：Lesson03 已讲授，四题答案已给出，用户索要答案按约定接受为私下完成确认；课堂与参考代码完成 31 项检查。下一次要求“下一节课”时进入 Lesson04。** Lesson04–08 尚未开始。
 
 ## 2. 教学约定
 
@@ -147,7 +147,7 @@ python verify.py --report /tmp/c03-lesson01-verification.json
 
 Lesson01 的代码、讲义与验收记录此前已同步到公开仓库，最近记录的提交为 `cbcac34f4fda9ed48115f94a08debda9b84517f0`。此前仅在本地的 `docs/handoff.md` 与本轮 Lesson02 文件，一并纳入用户 2026-10-26 明确要求的 GitHub 同步范围。具体提交以仓库历史为准。
 
-## 8. Lesson02 最新结果与下一课
+## 8. Lesson02 历史结果与当时接续
 
 本节单独记录 Lesson02，不计入 Lesson01 的历史验收。
 
@@ -169,4 +169,22 @@ Lesson02 已讲授配置、Tokenizer、权重职责，from_pretrained 与 from_c
 
 运行：`python -m hugging_learn.lesson02`、`python -m hugging_learn.homework.lesson02_answers`、`python verify_lesson02.py --report /tmp/c03-lesson02-verification.json`。本轮未训练、未生成文本，也未评估生成质量。
 
-下一课 Lesson03 从隐藏表示、词表输出头与每个位置的 logits 开始，再解释最后位置的下一 Token 分数、概率与候选 Token。手写生成留给 Lesson04，采样参数留给 Lesson05，KV cache 详解留给 Lesson07。不提前登记未来课为已完成。
+Lesson02 当时交接至 Lesson03：从隐藏表示、词表输出头与每个位置的 logits，继续到最后位置的下一 Token 分数、概率与候选。当前这部分已在 Lesson03 授课并复核，最新状态见第 9 节。
+
+
+## 9. Lesson03 最新结果与 Lesson04 接续
+
+2026-10-26 已提供 Lesson03 四题参考答案，本轮按用户指令补齐文件并同步。用户新增 `lesson03.py` 已实际执行，其全部原始字节、注释和无句号输入保留；同时保留并同步用户对 Lesson02 两行参数的缩进整理，不改动既有历史报告。
+
+固定使用同一 Qwen 模型与 revision，CPU float32；隐藏维度 896，词表输出维度 151936。用户文本“请统计最近一个月各部门的订单总金额”T=9，hidden `[1,9,896]`、logits `[1,9,151936]`；手动输出头差异为 0，最高分编号 8997（`'。\n'`）。作业三条带句号文本 T=[2,5,10]；完整词表 float64 概率和约 1，top5 仍是原分布中的概率。
+
+31 项检查通过，包括课堂运行、输出头、概率、候选、作业数值与因果对照。不同长度前缀最大差异约 2.18e-4，按记录的 float32 容差处理；同长度改变后续 Token，前两个位置差异为 0。参考答案模块单独运行成功。来源和边界见验收文件；没有训练或执行多步生成。
+
+- [用户课堂](../hugging_learn/lesson03.py)、[可运行答案](../hugging_learn/homework/lesson03_answers.py)
+- [讲义](C03-Lesson03-notes.md)、[作业与答案](C03-Lesson03-homework.md)
+- [验收与来源](C03-Lesson03-acceptance.md)、[实际运行 JSON](C03-Lesson03-verification.json)
+- [Lesson03→04 交接](C03-Lesson03-handoff.md)、[复核入口](../verify_lesson03.py)
+
+运行：`python -m hugging_learn.lesson03`、`python -m hugging_learn.homework.lesson03_answers`、`python verify_lesson03.py --report /tmp/c03-lesson03-verification.json`。
+
+下一课 Lesson04 手写自回归循环：预测一个编号、追加 input_ids 与 attention_mask、再次前向、EOS 与最大新增长度、完整续写解码。先用单条无补齐输入和 `use_cache=False`，理解循环后再进入后续 generate、批量与缓存课程。Lesson04–08 尚未开始。
