@@ -1,0 +1,1479 @@
+{
+  "verification_date": "2026-10-27",
+  "timezone": "Asia/Shanghai",
+  "scope": "固定 Qwen 单句无 PAD、CPU float32、手写贪心循环与四题；另列受控 EOS 分支和手工解码，不训练、不调用 generate",
+  "provenance": "用户课堂文件及新增注释保留；助手补充四题参考、验证器和说明；索要答案按约定接受为私下完成确认",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "source_sha256": {
+    "hugging_learn/lesson04.py": "c9ebed78fd66f852971be9a78acda02f74df09558e5756e25885741d2681be36",
+    "hugging_learn/homework/lesson04_answers.py": "43f55bbb9d59f53347e8bf58bde04b8e91fd012ebcab604ed0d2f18b1c15f94c",
+    "hugging_learn/lesson03.py": "29f5d9ec0a7eb8a12ac1f25c9efd242f7fe4f3c560f449f87319bcbb77e20d1d",
+    "hugging_learn/lesson02.py": "7a312978d637a4aa80c4a9d57a48d0b89f6d1a0106ac9c35ab8191c7db9ac2bc",
+    "hugging_learn/lesosn01.py": "07206df58b7dcd8415b11664025c51ded13c3d6c1fca4eaa33ef5d803db07c81"
+  },
+  "checks_passed": 35,
+  "checks": [
+    {
+      "name": "用户课堂入口实际运行",
+      "passed": true
+    },
+    {
+      "name": "固定模型结构与配置",
+      "passed": true
+    },
+    {
+      "name": "模型为 CPU float32 且已 eval",
+      "passed": true
+    },
+    {
+      "name": "课堂输入九个 Token 且上限为三",
+      "passed": true
+    },
+    {
+      "name": "课堂新增编号与最终长度",
+      "passed": true
+    },
+    {
+      "name": "课堂 Mask 同步增长且均为有效位置",
+      "passed": true
+    },
+    {
+      "name": "最后一次前向使用追加前的长度",
+      "passed": true
+    },
+    {
+      "name": "课堂输出有限且不记录梯度",
+      "passed": true
+    },
+    {
+      "name": "课堂按新增上限停止且 EOS 来自配置",
+      "passed": true
+    },
+    {
+      "name": "第一题与用户课堂实际生成一致",
+      "passed": true
+    },
+    {
+      "name": "第二题三条文本分别重新编码",
+      "passed": true
+    },
+    {
+      "name": "第一题：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第一题：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第一题：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第二题文本1：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第二题文本1：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第二题文本1：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第二题文本2：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第二题文本2：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第二题文本2：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第二题文本3：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第二题文本3：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第二题文本3：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第四题上限0：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第四题上限0：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第四题上限0：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第四题上限1：累计长度、次数与新增上限",
+      "passed": true
+    },
+    {
+      "name": "第四题上限1：逐步形状、Mask 与输出状态",
+      "passed": true
+    },
+    {
+      "name": "第四题上限1：真实样例按长度停止且未生成 EOS",
+      "passed": true
+    },
+    {
+      "name": "第二题三组固定生成编号",
+      "passed": true
+    },
+    {
+      "name": "第三题真实复现 cat 的维数错误",
+      "passed": true
+    },
+    {
+      "name": "第四题零上限不前向且续写为空",
+      "passed": true
+    },
+    {
+      "name": "手工 EOS 解码样例与字符数",
+      "passed": true
+    },
+    {
+      "name": "受控 EOS：追加结束编号后立即停止",
+      "passed": true
+    },
+    {
+      "name": "受控 EOS：显示时隐藏特殊标记",
+      "passed": true
+    }
+  ],
+  "qwen_forward_count": 31,
+  "classroom": {
+    "text": "请统计最近一个月各部门的订单总金额",
+    "prompt_length": 9,
+    "max_new_tokens": 3,
+    "new_ids": [
+      8997,
+      100012,
+      100364
+    ],
+    "final_shape": [
+      1,
+      12
+    ],
+    "last_logits_shape": [
+      1,
+      11,
+      151936
+    ],
+    "stop_reason": "max_new_tokens",
+    "stdout": "第 1 步：长度 9 -> 10，ID=8997，单项解码='。\\n'\n第 2 步：长度 10 -> 11，ID=100012，单项解码='为了'\n第 3 步：长度 11 -> 12，ID=100364，单项解码='帮助'\n停止原因： max_new_tokens\n新增编号： [8997, 100012, 100364]\n新增 Token 数： 3\n仅新增文本： '。\\n为了帮助'\n输入加续写： '请统计最近一个月各部门的订单总金额。\\n为了帮助'\n"
+  },
+  "answers": {
+    "lesson_date": "2026-10-27",
+    "timezone": "Asia/Shanghai",
+    "provenance": "四题助手参考；用户索要答案按约定接受为私下完成确认，与独立能力验证分开记录",
+    "scope": "单句、无 PAD、CPU float32、手写贪心循环、use_cache=False；同一份模型复用；不训练",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "q1": {
+      "text": "请统计最近一个月各部门的订单总金额",
+      "prompt_length": 9,
+      "original_ids": [
+        14880,
+        100787,
+        104044,
+        105033,
+        106852,
+        9370,
+        50410,
+        59743,
+        80094
+      ],
+      "max_new_tokens": 3,
+      "forward_count": 3,
+      "steps": [
+        {
+          "step": 1,
+          "input_shape_before": [
+            1,
+            9
+          ],
+          "logits_shape": [
+            1,
+            9,
+            151936
+          ],
+          "next_logits_shape": [
+            1,
+            151936
+          ],
+          "next_token_shape": [
+            1,
+            1
+          ],
+          "input_shape_after": [
+            1,
+            10
+          ],
+          "mask_shape_after": [
+            1,
+            10
+          ],
+          "mask_all_ones": true,
+          "finite_logits": true,
+          "logits_requires_grad": false,
+          "token_id": 8997,
+          "single_decoded": "。\n"
+        },
+        {
+          "step": 2,
+          "input_shape_before": [
+            1,
+            10
+          ],
+          "logits_shape": [
+            1,
+            10,
+            151936
+          ],
+          "next_logits_shape": [
+            1,
+            151936
+          ],
+          "next_token_shape": [
+            1,
+            1
+          ],
+          "input_shape_after": [
+            1,
+            11
+          ],
+          "mask_shape_after": [
+            1,
+            11
+          ],
+          "mask_all_ones": true,
+          "finite_logits": true,
+          "logits_requires_grad": false,
+          "token_id": 100012,
+          "single_decoded": "为了"
+        },
+        {
+          "step": 3,
+          "input_shape_before": [
+            1,
+            11
+          ],
+          "logits_shape": [
+            1,
+            11,
+            151936
+          ],
+          "next_logits_shape": [
+            1,
+            151936
+          ],
+          "next_token_shape": [
+            1,
+            1
+          ],
+          "input_shape_after": [
+            1,
+            12
+          ],
+          "mask_shape_after": [
+            1,
+            12
+          ],
+          "mask_all_ones": true,
+          "finite_logits": true,
+          "logits_requires_grad": false,
+          "token_id": 100364,
+          "single_decoded": "帮助"
+        }
+      ],
+      "new_ids": [
+        8997,
+        100012,
+        100364
+      ],
+      "new_ids_shape": [
+        1,
+        3
+      ],
+      "final_shape": [
+        1,
+        12
+      ],
+      "stop_reason": "max_new_tokens",
+      "continuation": "。\n为了帮助",
+      "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助",
+      "eos_ids": [
+        151643
+      ]
+    },
+    "q2": [
+      {
+        "text": "你好。",
+        "prompt_length": 2,
+        "original_ids": [
+          108386,
+          1773
+        ],
+        "max_new_tokens": 8,
+        "forward_count": 8,
+        "steps": [
+          {
+            "step": 1,
+            "input_shape_before": [
+              1,
+              2
+            ],
+            "logits_shape": [
+              1,
+              2,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              3
+            ],
+            "mask_shape_after": [
+              1,
+              3
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 35946,
+            "single_decoded": "我"
+          },
+          {
+            "step": 2,
+            "input_shape_before": [
+              1,
+              3
+            ],
+            "logits_shape": [
+              1,
+              3,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              4
+            ],
+            "mask_shape_after": [
+              1,
+              4
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 104044,
+            "single_decoded": "最近"
+          },
+          {
+            "step": 3,
+            "input_shape_before": [
+              1,
+              4
+            ],
+            "logits_shape": [
+              1,
+              4,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              5
+            ],
+            "mask_shape_after": [
+              1,
+              5
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 104014,
+            "single_decoded": "总是"
+          },
+          {
+            "step": 4,
+            "input_shape_before": [
+              1,
+              5
+            ],
+            "logits_shape": [
+              1,
+              5,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              6
+            ],
+            "mask_shape_after": [
+              1,
+              6
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100681,
+            "single_decoded": "感觉"
+          },
+          {
+            "step": 5,
+            "input_shape_before": [
+              1,
+              6
+            ],
+            "logits_shape": [
+              1,
+              6,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              7
+            ],
+            "mask_shape_after": [
+              1,
+              7
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 116280,
+            "single_decoded": "头晕"
+          },
+          {
+            "step": 6,
+            "input_shape_before": [
+              1,
+              7
+            ],
+            "logits_shape": [
+              1,
+              7,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              8
+            ],
+            "mask_shape_after": [
+              1,
+              8
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 3837,
+            "single_decoded": "，"
+          },
+          {
+            "step": 7,
+            "input_shape_before": [
+              1,
+              8
+            ],
+            "logits_shape": [
+              1,
+              8,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              9
+            ],
+            "mask_shape_after": [
+              1,
+              9
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 101885,
+            "single_decoded": "而且"
+          },
+          {
+            "step": 8,
+            "input_shape_before": [
+              1,
+              9
+            ],
+            "logits_shape": [
+              1,
+              9,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              10
+            ],
+            "mask_shape_after": [
+              1,
+              10
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 104854,
+            "single_decoded": "有时候"
+          }
+        ],
+        "new_ids": [
+          35946,
+          104044,
+          104014,
+          100681,
+          116280,
+          3837,
+          101885,
+          104854
+        ],
+        "new_ids_shape": [
+          1,
+          8
+        ],
+        "final_shape": [
+          1,
+          10
+        ],
+        "stop_reason": "max_new_tokens",
+        "continuation": "我最近总是感觉头晕，而且有时候",
+        "full_text": "你好。我最近总是感觉头晕，而且有时候",
+        "eos_ids": [
+          151643
+        ]
+      },
+      {
+        "text": "我想查询订单金额。",
+        "prompt_length": 5,
+        "original_ids": [
+          104100,
+          51154,
+          50410,
+          80094,
+          1773
+        ],
+        "max_new_tokens": 8,
+        "forward_count": 8,
+        "steps": [
+          {
+            "step": 1,
+            "input_shape_before": [
+              1,
+              5
+            ],
+            "logits_shape": [
+              1,
+              5,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              6
+            ],
+            "mask_shape_after": [
+              1,
+              6
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 50410,
+            "single_decoded": "订单"
+          },
+          {
+            "step": 2,
+            "input_shape_before": [
+              1,
+              6
+            ],
+            "logits_shape": [
+              1,
+              6,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              7
+            ],
+            "mask_shape_after": [
+              1,
+              7
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 17992,
+            "single_decoded": "号"
+          },
+          {
+            "step": 3,
+            "input_shape_before": [
+              1,
+              7
+            ],
+            "logits_shape": [
+              1,
+              7,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              8
+            ],
+            "mask_shape_after": [
+              1,
+              8
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 20412,
+            "single_decoded": "是"
+          },
+          {
+            "step": 4,
+            "input_shape_before": [
+              1,
+              8
+            ],
+            "logits_shape": [
+              1,
+              8,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              9
+            ],
+            "mask_shape_after": [
+              1,
+              9
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 16,
+            "single_decoded": "1"
+          },
+          {
+            "step": 5,
+            "input_shape_before": [
+              1,
+              9
+            ],
+            "logits_shape": [
+              1,
+              9,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              10
+            ],
+            "mask_shape_after": [
+              1,
+              10
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 17,
+            "single_decoded": "2"
+          },
+          {
+            "step": 6,
+            "input_shape_before": [
+              1,
+              10
+            ],
+            "logits_shape": [
+              1,
+              10,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              11
+            ],
+            "mask_shape_after": [
+              1,
+              11
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 18,
+            "single_decoded": "3"
+          },
+          {
+            "step": 7,
+            "input_shape_before": [
+              1,
+              11
+            ],
+            "logits_shape": [
+              1,
+              11,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              12
+            ],
+            "mask_shape_after": [
+              1,
+              12
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 19,
+            "single_decoded": "4"
+          },
+          {
+            "step": 8,
+            "input_shape_before": [
+              1,
+              12
+            ],
+            "logits_shape": [
+              1,
+              12,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              13
+            ],
+            "mask_shape_after": [
+              1,
+              13
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 20,
+            "single_decoded": "5"
+          }
+        ],
+        "new_ids": [
+          50410,
+          17992,
+          20412,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "new_ids_shape": [
+          1,
+          8
+        ],
+        "final_shape": [
+          1,
+          13
+        ],
+        "stop_reason": "max_new_tokens",
+        "continuation": "订单号是12345",
+        "full_text": "我想查询订单金额。订单号是12345",
+        "eos_ids": [
+          151643
+        ]
+      },
+      {
+        "text": "请统计最近一个月各部门的订单总金额。",
+        "prompt_length": 10,
+        "original_ids": [
+          14880,
+          100787,
+          104044,
+          105033,
+          106852,
+          9370,
+          50410,
+          59743,
+          80094,
+          1773
+        ],
+        "max_new_tokens": 8,
+        "forward_count": 8,
+        "steps": [
+          {
+            "step": 1,
+            "input_shape_before": [
+              1,
+              10
+            ],
+            "logits_shape": [
+              1,
+              10,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              11
+            ],
+            "mask_shape_after": [
+              1,
+              11
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 220,
+            "single_decoded": " "
+          },
+          {
+            "step": 2,
+            "input_shape_before": [
+              1,
+              11
+            ],
+            "logits_shape": [
+              1,
+              11,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              12
+            ],
+            "mask_shape_after": [
+              1,
+              12
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100012,
+            "single_decoded": "为了"
+          },
+          {
+            "step": 3,
+            "input_shape_before": [
+              1,
+              12
+            ],
+            "logits_shape": [
+              1,
+              12,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              13
+            ],
+            "mask_shape_after": [
+              1,
+              13
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100364,
+            "single_decoded": "帮助"
+          },
+          {
+            "step": 4,
+            "input_shape_before": [
+              1,
+              13
+            ],
+            "logits_shape": [
+              1,
+              13,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              14
+            ],
+            "mask_shape_after": [
+              1,
+              14
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 87026,
+            "single_decoded": "您"
+          },
+          {
+            "step": 5,
+            "input_shape_before": [
+              1,
+              14
+            ],
+            "logits_shape": [
+              1,
+              14,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              15
+            ],
+            "mask_shape_after": [
+              1,
+              15
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100787,
+            "single_decoded": "统计"
+          },
+          {
+            "step": 6,
+            "input_shape_before": [
+              1,
+              15
+            ],
+            "logits_shape": [
+              1,
+              15,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              16
+            ],
+            "mask_shape_after": [
+              1,
+              16
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 104044,
+            "single_decoded": "最近"
+          },
+          {
+            "step": 7,
+            "input_shape_before": [
+              1,
+              16
+            ],
+            "logits_shape": [
+              1,
+              16,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              17
+            ],
+            "mask_shape_after": [
+              1,
+              17
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 105033,
+            "single_decoded": "一个月"
+          },
+          {
+            "step": 8,
+            "input_shape_before": [
+              1,
+              17
+            ],
+            "logits_shape": [
+              1,
+              17,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              18
+            ],
+            "mask_shape_after": [
+              1,
+              18
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 106852,
+            "single_decoded": "各部门"
+          }
+        ],
+        "new_ids": [
+          220,
+          100012,
+          100364,
+          87026,
+          100787,
+          104044,
+          105033,
+          106852
+        ],
+        "new_ids_shape": [
+          1,
+          8
+        ],
+        "final_shape": [
+          1,
+          18
+        ],
+        "stop_reason": "max_new_tokens",
+        "continuation": " 为了帮助您统计最近一个月各部门",
+        "full_text": "请统计最近一个月各部门的订单总金额。 为了帮助您统计最近一个月各部门",
+        "eos_ids": [
+          151643
+        ]
+      }
+    ],
+    "q3": {
+      "replace_input": "input_ids = next_token 会丢失完整上下文；本课不使用缓存，必须追加。",
+      "rank_mismatch": {
+        "input_shape": [
+          1,
+          9
+        ],
+        "wrong_next_shape": [
+          1
+        ],
+        "actual_error": "Tensors must have same number of dimensions: got 2 and 1"
+      },
+      "fixes": [
+        "next_token = next_logits.argmax(dim=-1, keepdim=True)",
+        "input_ids = torch.cat([input_ids, next_token], dim=-1)",
+        "也可先 argmax(dim=-1)，再 unsqueeze(-1)，并同步追加 attention_mask。"
+      ]
+    },
+    "q4": {
+      "boundary_runs": {
+        "0": {
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "original_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "max_new_tokens": 0,
+          "forward_count": 0,
+          "steps": [],
+          "new_ids": [],
+          "new_ids_shape": [
+            1,
+            0
+          ],
+          "final_shape": [
+            1,
+            9
+          ],
+          "stop_reason": "max_new_tokens",
+          "continuation": "",
+          "full_text": "请统计最近一个月各部门的订单总金额",
+          "eos_ids": [
+            151643
+          ]
+        },
+        "1": {
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "original_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "max_new_tokens": 1,
+          "forward_count": 1,
+          "steps": [
+            {
+              "step": 1,
+              "input_shape_before": [
+                1,
+                9
+              ],
+              "logits_shape": [
+                1,
+                9,
+                151936
+              ],
+              "next_logits_shape": [
+                1,
+                151936
+              ],
+              "next_token_shape": [
+                1,
+                1
+              ],
+              "input_shape_after": [
+                1,
+                10
+              ],
+              "mask_shape_after": [
+                1,
+                10
+              ],
+              "mask_all_ones": true,
+              "finite_logits": true,
+              "logits_requires_grad": false,
+              "token_id": 8997,
+              "single_decoded": "。\n"
+            }
+          ],
+          "new_ids": [
+            8997
+          ],
+          "new_ids_shape": [
+            1,
+            1
+          ],
+          "final_shape": [
+            1,
+            10
+          ],
+          "stop_reason": "max_new_tokens",
+          "continuation": "。\n",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n",
+          "eos_ids": [
+            151643
+          ]
+        }
+      },
+      "synthetic_eos_decode": {
+        "provenance": "手工构造的解码示例，不是模型生成轨迹",
+        "ids": [
+          105033,
+          151643
+        ],
+        "decoded_with_special": "一个月<|endoftext|>",
+        "decoded_without_special": "一个月",
+        "id_count": 2,
+        "visible_python_character_count": 3
+      }
+    }
+  },
+  "controlled_eos_case": {
+    "provenance": "受控假模型给定两个候选；不是 Qwen 自然生成轨迹",
+    "result": {
+      "text": "你好。",
+      "prompt_length": 2,
+      "original_ids": [
+        108386,
+        1773
+      ],
+      "max_new_tokens": 8,
+      "forward_count": 2,
+      "steps": [
+        {
+          "step": 1,
+          "input_shape_before": [
+            1,
+            2
+          ],
+          "logits_shape": [
+            1,
+            2,
+            151936
+          ],
+          "next_logits_shape": [
+            1,
+            151936
+          ],
+          "next_token_shape": [
+            1,
+            1
+          ],
+          "input_shape_after": [
+            1,
+            3
+          ],
+          "mask_shape_after": [
+            1,
+            3
+          ],
+          "mask_all_ones": true,
+          "finite_logits": true,
+          "logits_requires_grad": false,
+          "token_id": 8997,
+          "single_decoded": "。\n"
+        },
+        {
+          "step": 2,
+          "input_shape_before": [
+            1,
+            3
+          ],
+          "logits_shape": [
+            1,
+            3,
+            151936
+          ],
+          "next_logits_shape": [
+            1,
+            151936
+          ],
+          "next_token_shape": [
+            1,
+            1
+          ],
+          "input_shape_after": [
+            1,
+            4
+          ],
+          "mask_shape_after": [
+            1,
+            4
+          ],
+          "mask_all_ones": true,
+          "finite_logits": true,
+          "logits_requires_grad": false,
+          "token_id": 151643,
+          "single_decoded": "<|endoftext|>"
+        }
+      ],
+      "new_ids": [
+        8997,
+        151643
+      ],
+      "new_ids_shape": [
+        1,
+        2
+      ],
+      "final_shape": [
+        1,
+        4
+      ],
+      "stop_reason": "eos_token",
+      "continuation": "。\n",
+      "full_text": "你好。。\n",
+      "eos_ids": [
+        151643
+      ]
+    }
+  }
+}

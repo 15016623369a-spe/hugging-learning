@@ -1,8 +1,8 @@
-# C03 课程交接（截至 Lesson03）
+# C03 课程交接（截至 Lesson04）
 
-更新日期：2026-10-26（Asia/Shanghai）。
+更新日期：2026-10-27（Asia/Shanghai）。
 
-本文件保留 Lesson01 交接详情和 Lesson02 历史结果，并更新截至 Lesson03 的进度。当前接续文档为 [Lesson03→04 交接](C03-Lesson03-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
+本文件保留 Lesson01 交接详情和 Lesson02–03 历史结果，并更新截至 Lesson04 的进度。当前接续文档为 [Lesson04→05 交接](C03-Lesson04-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
 
 ## 1. 接续入口
 
@@ -10,7 +10,7 @@
 
 **C03 Lesson01 已讲授，四道作业答案已提供，用户索要答案按约定接受为私下完成确认；用户原课堂脚本已检查，27 项本地检查通过。** 原文件、助手补充和运行证据分别记录，不把参考答案当成用户原有独立实现。
 
-**最新接续位置：Lesson03 已讲授，四题答案已给出，用户索要答案按约定接受为私下完成确认；课堂与参考代码完成 31 项检查。下一次要求“下一节课”时进入 Lesson04。** Lesson04–08 尚未开始。
+**最新接续位置：Lesson04 已讲授，四题答案已给出，用户索要答案按约定接受为私下完成确认；课堂与参考代码完成 35 项检查，已实际执行手写贪心生成。下一次要求“下一节课”时进入 Lesson05。** Lesson05–08 尚未开始。
 
 ## 2. 教学约定
 
@@ -172,7 +172,7 @@ Lesson02 已讲授配置、Tokenizer、权重职责，from_pretrained 与 from_c
 Lesson02 当时交接至 Lesson03：从隐藏表示、词表输出头与每个位置的 logits，继续到最后位置的下一 Token 分数、概率与候选。当前这部分已在 Lesson03 授课并复核，最新状态见第 9 节。
 
 
-## 9. Lesson03 最新结果与 Lesson04 接续
+## 9. Lesson03 历史结果与当时接续
 
 2026-10-26 已提供 Lesson03 四题参考答案，本轮按用户指令补齐文件并同步。用户新增 `lesson03.py` 已实际执行，其全部原始字节、注释和无句号输入保留；同时保留并同步用户对 Lesson02 两行参数的缩进整理，不改动既有历史报告。
 
@@ -187,4 +187,22 @@ Lesson02 当时交接至 Lesson03：从隐藏表示、词表输出头与每个�
 
 运行：`python -m hugging_learn.lesson03`、`python -m hugging_learn.homework.lesson03_answers`、`python verify_lesson03.py --report /tmp/c03-lesson03-verification.json`。
 
-下一课 Lesson04 手写自回归循环：预测一个编号、追加 input_ids 与 attention_mask、再次前向、EOS 与最大新增长度、完整续写解码。先用单条无补齐输入和 `use_cache=False`，理解循环后再进入后续 generate、批量与缓存课程。Lesson04–08 尚未开始。
+Lesson03 当时接续至 Lesson04 手写自回归循环。该课现已授课并完成参考答案与运行复核，最新结果见第 10 节。
+
+
+## 10. Lesson04 最新结果与 Lesson05 接续
+
+2026-10-27 已讲授 Lesson04 并给出四题答案，本轮按用户明确要求补齐本地文件并同步 GitHub。先保存用户尚未落盘的课堂修改，随后保留当前 `lesson04.py` 的全部字节：无句号输入、三步设置、导入兼容及“cat是concatenate”注释。完整四题参考单独保存，不用参考实现覆盖课堂练习。
+
+沿用固定 Qwen 模型、CPU float32、eval、inference_mode、单句无 PAD、`use_cache=False`。课堂输入 T=9，新增 `[8997,100012,100364]`，续写 `'。\n为了帮助'`，最终长度 12，最后一次 logits 的 T=11。三条带句号作业文本 T=[2,5,10]，各新增 8 个 Token，最终长度 [10,13,18]。零上限不前向，一步上限只生成 8997。
+
+35 项检查通过，用户课堂和四题共享模型，共 31 次真实 Qwen 前向。完整答案独立直接运行成功，结果与报告一致；课堂直接脚本入口和答案模块帮助入口也通过。真实样例按新增上限结束，受控假模型的 EOS 停止检查、手工 EOS 解码示例均单独标明来源。
+
+- [用户课堂](../hugging_learn/lesson04.py)、[完整四题代码](../hugging_learn/homework/lesson04_answers.py)
+- [讲义](C03-Lesson04-notes.md)、[四题答案](C03-Lesson04-homework.md)
+- [验收与来源](C03-Lesson04-acceptance.md)、[实际运行 JSON](C03-Lesson04-verification.json)
+- [Lesson04→05 交接](C03-Lesson04-handoff.md)、[验证器](../verify_lesson04.py)
+
+运行：`python -m hugging_learn.lesson04`、`python -m hugging_learn.homework.lesson04_answers`、`python verify_lesson04.py --report /tmp/c03-lesson04-verification.json`。
+
+下一课 Lesson05 连接 `model.generate`，明确贪心设置并比较编号，再讲采样、temperature、top-k/top-p 和随机性。Lesson05–08 尚未开始；批量与对话留给 Lesson06，KV cache 详解留给 Lesson07。本课没有训练、调用 generate 或评估生成质量。
