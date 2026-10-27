@@ -1,0 +1,1311 @@
+{
+  "verification_date": "2026-10-27",
+  "timezone": "Asia/Shanghai",
+  "provenance": "用户明确确认完成；原课堂文件逐字节保留；助手补充四题参考、验证器与文档；未另行验证用户独立能力",
+  "scope": "固定 Qwen、CPU float32、eval、inference_mode、单句无 PAD、use_cache=False；教学概率另列；不训练",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "source_sha256": {
+    "hugging_learn/lesson05.py": "fdb29b74c3c2536321a120b1d667b978e31e31c521bdc037204100d06e7577c2",
+    "hugging_learn/homework/lesson05_answers.py": "862150fbd6f99c5529ad6ed4f1c38b4a3d9f9b82b7cce6b68b041271e5de46f5",
+    "verify_lesson05.py": "180f31656402a4be2c5ce941009b48600e98c4affc5a3019f893c853a99124ec",
+    "hugging_learn/lesson04.py": "c9ebed78fd66f852971be9a78acda02f74df09558e5756e25885741d2681be36",
+    "hugging_learn/causal_common.py": "f36b5ed8ee51980881498f32e8313d46f7e174d63324b883da7f532bc495b152"
+  },
+  "checks_passed": 38,
+  "checks": [
+    {
+      "name": "用户课堂实际运行且原有断言通过",
+      "passed": true
+    },
+    {
+      "name": "固定模型、设备精度与 eval",
+      "passed": true
+    },
+    {
+      "name": "课堂输入九个 token，显式上限八且关闭缓存",
+      "passed": true
+    },
+    {
+      "name": "课堂模型自带新增上限为2048",
+      "passed": true
+    },
+    {
+      "name": "课堂贪心编号与手写循环逐编号相同",
+      "passed": true
+    },
+    {
+      "name": "课堂完整输出包含原输入且为17个token",
+      "passed": true
+    },
+    {
+      "name": "课堂两次seed42相同",
+      "passed": true
+    },
+    {
+      "name": "第一题三步手写与generate编号一致",
+      "passed": true
+    },
+    {
+      "name": "第一题输入/新增/总形状",
+      "passed": true
+    },
+    {
+      "name": "第二题各文本独立编码且长度正确",
+      "passed": true
+    },
+    {
+      "name": "第二题新增上限分别为4和8",
+      "passed": true
+    },
+    {
+      "name": "第二题完整长度随输入变化",
+      "passed": true
+    },
+    {
+      "name": "第二题同一max_length12对应新增10和3",
+      "passed": true
+    },
+    {
+      "name": "第三题重设种子的结果与课堂一致",
+      "passed": true
+    },
+    {
+      "name": "第三题只设一次种子的首轮与重设首轮一致",
+      "passed": true
+    },
+    {
+      "name": "第三题只设一次的后续两轮本次结果发生变化",
+      "passed": true
+    },
+    {
+      "name": "实际生成1：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成2：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成3：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成4：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成5：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成6：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成7：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成8：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成9：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成10：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成11：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成12：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "实际生成13：前缀、形状与停止条件",
+      "passed": true
+    },
+    {
+      "name": "第四题温度升高使首项概率降低",
+      "passed": true
+    },
+    {
+      "name": "第四题所有正温度保留最高分编号",
+      "passed": true
+    },
+    {
+      "name": "第四题top_k2保留A/B",
+      "passed": true
+    },
+    {
+      "name": "第四题top_p09保留A/B/C",
+      "passed": true
+    },
+    {
+      "name": "第四题组合k2与p09保留A/B",
+      "passed": true
+    },
+    {
+      "name": "第四题用户所选0.85/4/0.9保留A/B",
+      "passed": true
+    },
+    {
+      "name": "第四题过滤后概率和为1且被过滤项为0",
+      "passed": true
+    },
+    {
+      "name": "当前generate的零上限真实抛出ValueError",
+      "passed": true
+    },
+    {
+      "name": "用户课堂注释及全部字节保留",
+      "passed": true
+    }
+  ],
+  "classroom": {
+    "text": "请统计最近一个月各部门的订单总金额",
+    "prompt_length": 9,
+    "common_options": {
+      "max_new_tokens": 8,
+      "num_beams": 1,
+      "use_cache": false,
+      "eos_token_id": 151643,
+      "pad_token_id": 151643,
+      "return_dict_in_generate": false
+    },
+    "greedy_new_ids": [
+      8997,
+      100012,
+      100364,
+      87026,
+      100787,
+      104044,
+      105033,
+      106852
+    ],
+    "sample_results": [
+      [
+        8997,
+        30534,
+        100787,
+        104044,
+        105033,
+        106852,
+        9370,
+        50410
+      ],
+      [
+        8997,
+        30534,
+        100787,
+        104044,
+        105033,
+        106852,
+        9370,
+        50410
+      ],
+      [
+        3837,
+        23031,
+        99667,
+        17714,
+        75317,
+        198,
+        103942,
+        73670
+      ]
+    ],
+    "stdout": "输入形状： torch.Size([1, 9])\n模型自带生成配置： GenerationConfig {\n  \"bos_token_id\": 151643,\n  \"do_sample\": false,\n  \"eos_token_id\": 151643,\n  \"max_new_tokens\": 2048\n}\n\n\n与手写循环一致： True\n完整输出形状： torch.Size([1, 17])\n新增编号： [8997, 100012, 100364, 87026, 100787, 104044, 105033, 106852]\n新增文本： '。\\n为了帮助您统计最近一个月各部门'\n\n采样 seed=42\n新增编号： [8997, 30534, 100787, 104044, 105033, 106852, 9370, 50410]\n新增文本： '。\\n要统计最近一个月各部门的订单'\n\n采样 seed=42\n新增编号： [8997, 30534, 100787, 104044, 105033, 106852, 9370, 50410]\n新增文本： '。\\n要统计最近一个月各部门的订单'\n\n采样 seed=43\n新增编号： [3837, 23031, 99667, 17714, 75317, 198, 103942, 73670]\n新增文本： '，以部门为单位\\n当然可以'\n\n相同种子的两次结果一致： True\n"
+  },
+  "answers": {
+    "provenance": "助手四题参考；用户已在聊天明确确认完成，独立能力未另行验收",
+    "scope": "固定 Qwen、CPU float32、eval、inference_mode、单句无 PAD、use_cache=False；教学概率另列；不训练",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "sampling_options": {
+      "temperature": 0.8,
+      "top_k": 20,
+      "top_p": 0.9
+    },
+    "q1": {
+      "manual": {
+        "text": "请统计最近一个月各部门的订单总金额",
+        "prompt_length": 9,
+        "original_ids": [
+          14880,
+          100787,
+          104044,
+          105033,
+          106852,
+          9370,
+          50410,
+          59743,
+          80094
+        ],
+        "max_new_tokens": 3,
+        "forward_count": 3,
+        "steps": [
+          {
+            "step": 1,
+            "input_shape_before": [
+              1,
+              9
+            ],
+            "logits_shape": [
+              1,
+              9,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              10
+            ],
+            "mask_shape_after": [
+              1,
+              10
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 8997,
+            "single_decoded": "。\n"
+          },
+          {
+            "step": 2,
+            "input_shape_before": [
+              1,
+              10
+            ],
+            "logits_shape": [
+              1,
+              10,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              11
+            ],
+            "mask_shape_after": [
+              1,
+              11
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100012,
+            "single_decoded": "为了"
+          },
+          {
+            "step": 3,
+            "input_shape_before": [
+              1,
+              11
+            ],
+            "logits_shape": [
+              1,
+              11,
+              151936
+            ],
+            "next_logits_shape": [
+              1,
+              151936
+            ],
+            "next_token_shape": [
+              1,
+              1
+            ],
+            "input_shape_after": [
+              1,
+              12
+            ],
+            "mask_shape_after": [
+              1,
+              12
+            ],
+            "mask_all_ones": true,
+            "finite_logits": true,
+            "logits_requires_grad": false,
+            "token_id": 100364,
+            "single_decoded": "帮助"
+          }
+        ],
+        "new_ids": [
+          8997,
+          100012,
+          100364
+        ],
+        "new_ids_shape": [
+          1,
+          3
+        ],
+        "final_shape": [
+          1,
+          12
+        ],
+        "stop_reason": "max_new_tokens",
+        "continuation": "。\n为了帮助",
+        "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助",
+        "eos_ids": [
+          151643
+        ]
+      },
+      "generate": {
+        "text": "请统计最近一个月各部门的订单总金额",
+        "prompt_length": 9,
+        "input_ids": [
+          14880,
+          100787,
+          104044,
+          105033,
+          106852,
+          9370,
+          50410,
+          59743,
+          80094
+        ],
+        "input_shape": [
+          1,
+          9
+        ],
+        "output_shape": [
+          1,
+          12
+        ],
+        "new_shape": [
+          1,
+          3
+        ],
+        "new_ids": [
+          8997,
+          100012,
+          100364
+        ],
+        "continuation": "。\n为了帮助",
+        "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助",
+        "prefix_preserved": true,
+        "options": {
+          "num_beams": 1,
+          "use_cache": false,
+          "do_sample": false,
+          "eos_token_id": 151643,
+          "pad_token_id": 151643,
+          "return_dict_in_generate": false,
+          "max_new_tokens": 3
+        },
+        "eos_ids": [
+          151643
+        ],
+        "stop_reason": "length_limit"
+      },
+      "ids_equal": true
+    },
+    "q2": {
+      "new_token_limits": [
+        {
+          "text": "你好。",
+          "prompt_length": 2,
+          "input_ids": [
+            108386,
+            1773
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_shape": [
+            1,
+            6
+          ],
+          "new_shape": [
+            1,
+            4
+          ],
+          "new_ids": [
+            35946,
+            104044,
+            104014,
+            100681
+          ],
+          "continuation": "我最近总是感觉",
+          "full_text": "你好。我最近总是感觉",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 4
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "text": "你好。",
+          "prompt_length": 2,
+          "input_ids": [
+            108386,
+            1773
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_shape": [
+            1,
+            10
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            35946,
+            104044,
+            104014,
+            100681,
+            116280,
+            3837,
+            101885,
+            104854
+          ],
+          "continuation": "我最近总是感觉头晕，而且有时候",
+          "full_text": "你好。我最近总是感觉头晕，而且有时候",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            13
+          ],
+          "new_shape": [
+            1,
+            4
+          ],
+          "new_ids": [
+            8997,
+            100012,
+            100364,
+            87026
+          ],
+          "continuation": "。\n为了帮助您",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助您",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 4
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            100012,
+            100364,
+            87026,
+            100787,
+            104044,
+            105033,
+            106852
+          ],
+          "continuation": "。\n为了帮助您统计最近一个月各部门",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助您统计最近一个月各部门",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        }
+      ],
+      "total_length_limits": [
+        {
+          "text": "你好。",
+          "prompt_length": 2,
+          "input_ids": [
+            108386,
+            1773
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_shape": [
+            1,
+            12
+          ],
+          "new_shape": [
+            1,
+            10
+          ],
+          "new_ids": [
+            35946,
+            104044,
+            104014,
+            100681,
+            116280,
+            3837,
+            101885,
+            104854,
+            36993,
+            110887
+          ],
+          "continuation": "我最近总是感觉头晕，而且有时候会恶心",
+          "full_text": "你好。我最近总是感觉头晕，而且有时候会恶心",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": null,
+            "max_length": 12
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            12
+          ],
+          "new_shape": [
+            1,
+            3
+          ],
+          "new_ids": [
+            8997,
+            100012,
+            100364
+          ],
+          "continuation": "。\n为了帮助",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n为了帮助",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": null,
+            "max_length": 12
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        }
+      ]
+    },
+    "q3": {
+      "reset_each_time": [
+        {
+          "seed": 42,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            30534,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410
+          ],
+          "continuation": "。\n要统计最近一个月各部门的订单",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n要统计最近一个月各部门的订单",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "seed": 42,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            30534,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410
+          ],
+          "continuation": "。\n要统计最近一个月各部门的订单",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n要统计最近一个月各部门的订单",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "seed": 43,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            3837,
+            23031,
+            99667,
+            17714,
+            75317,
+            198,
+            103942,
+            73670
+          ],
+          "continuation": "，以部门为单位\n当然可以",
+          "full_text": "请统计最近一个月各部门的订单总金额，以部门为单位\n当然可以",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        }
+      ],
+      "seed_once": [
+        {
+          "call": 1,
+          "seed_set_before_sequence": 42,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            30534,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410
+          ],
+          "continuation": "。\n要统计最近一个月各部门的订单",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n要统计最近一个月各部门的订单",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "call": 2,
+          "seed_set_before_sequence": 42,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            103942,
+            73670,
+            6313,
+            100012,
+            100768,
+            99200,
+            99667
+          ],
+          "continuation": "。\n当然可以！为了计算各部门",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n当然可以！为了计算各部门",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        },
+        {
+          "call": 3,
+          "seed_set_before_sequence": 42,
+          "text": "请统计最近一个月各部门的订单总金额",
+          "prompt_length": 9,
+          "input_ids": [
+            14880,
+            100787,
+            104044,
+            105033,
+            106852,
+            9370,
+            50410,
+            59743,
+            80094
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_ids": [
+            8997,
+            99165,
+            115546,
+            3837,
+            35946,
+            101068,
+            99553,
+            105149
+          ],
+          "continuation": "。\n很抱歉，我无法提供特定",
+          "full_text": "请统计最近一个月各部门的订单总金额。\n很抱歉，我无法提供特定",
+          "prefix_preserved": true,
+          "options": {
+            "num_beams": 1,
+            "use_cache": false,
+            "do_sample": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "max_new_tokens": 8,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "eos_ids": [
+            151643
+          ],
+          "stop_reason": "length_limit"
+        }
+      ]
+    },
+    "q4": {
+      "temperature_runs": [
+        {
+          "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+          "logits": [
+            3,
+            2,
+            1,
+            0,
+            -1
+          ],
+          "temperature": 0.5,
+          "top_k": 0,
+          "top_p": 1.0,
+          "probabilities_before_filter": [
+            0.8647039742630842,
+            0.11702495727271917,
+            0.015837605738255944,
+            0.0021433868583766707,
+            0.0002900758675640402
+          ],
+          "retained_indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "final_probabilities": [
+            0.8647039742630842,
+            0.11702495727271917,
+            0.015837605738255944,
+            0.0021433868583766707,
+            0.0002900758675640402
+          ]
+        },
+        {
+          "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+          "logits": [
+            3,
+            2,
+            1,
+            0,
+            -1
+          ],
+          "temperature": 1.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "probabilities_before_filter": [
+            0.6364086465588307,
+            0.2341216572527366,
+            0.08612854443626869,
+            0.03168492079612426,
+            0.011656230956039603
+          ],
+          "retained_indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "final_probabilities": [
+            0.6364086465588307,
+            0.2341216572527366,
+            0.08612854443626869,
+            0.03168492079612426,
+            0.011656230956039603
+          ]
+        },
+        {
+          "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+          "logits": [
+            3,
+            2,
+            1,
+            0,
+            -1
+          ],
+          "temperature": 2.0,
+          "top_k": 0,
+          "top_p": 1.0,
+          "probabilities_before_filter": [
+            0.42865552877716695,
+            0.2599927206586828,
+            0.1576935563815933,
+            0.09564597678455913,
+            0.058012217397997876
+          ],
+          "retained_indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "final_probabilities": [
+            0.42865552877716695,
+            0.2599927206586828,
+            0.1576935563815933,
+            0.09564597678455913,
+            0.058012217397997876
+          ]
+        }
+      ],
+      "top_k_2": {
+        "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+        "logits": [
+          3,
+          2,
+          1,
+          0,
+          -1
+        ],
+        "temperature": 1.0,
+        "top_k": 2,
+        "top_p": 1.0,
+        "probabilities_before_filter": [
+          0.6364086465588307,
+          0.2341216572527366,
+          0.08612854443626869,
+          0.03168492079612426,
+          0.011656230956039603
+        ],
+        "retained_indices": [
+          0,
+          1
+        ],
+        "final_probabilities": [
+          0.7310585786300049,
+          0.26894142136999516,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "top_p_09": {
+        "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+        "logits": [
+          3,
+          2,
+          1,
+          0,
+          -1
+        ],
+        "temperature": 1.0,
+        "top_k": 0,
+        "top_p": 0.9,
+        "probabilities_before_filter": [
+          0.6364086465588307,
+          0.2341216572527366,
+          0.08612854443626869,
+          0.03168492079612426,
+          0.011656230956039603
+        ],
+        "retained_indices": [
+          0,
+          1,
+          2
+        ],
+        "final_probabilities": [
+          0.6652409557748218,
+          0.2447284710547976,
+          0.09003057317038045,
+          0.0,
+          0.0
+        ]
+      },
+      "combined_k2_p09": {
+        "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+        "logits": [
+          3,
+          2,
+          1,
+          0,
+          -1
+        ],
+        "temperature": 1.0,
+        "top_k": 2,
+        "top_p": 0.9,
+        "probabilities_before_filter": [
+          0.6364086465588307,
+          0.2341216572527366,
+          0.08612854443626869,
+          0.03168492079612426,
+          0.011656230956039603
+        ],
+        "retained_indices": [
+          0,
+          1
+        ],
+        "final_probabilities": [
+          0.7310585786300049,
+          0.26894142136999516,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "user_selected_controls": {
+        "provenance": "手工教学 logits；不是 Qwen 候选分数或实际生成轨迹",
+        "logits": [
+          3,
+          2,
+          1,
+          0,
+          -1
+        ],
+        "temperature": 0.85,
+        "top_k": 4,
+        "top_p": 0.9,
+        "probabilities_before_filter": [
+          0.6935686520374735,
+          0.21387241383334127,
+          0.06595080280016542,
+          0.020336930378387342,
+          0.006271200950632498
+        ],
+        "retained_indices": [
+          0,
+          1
+        ],
+        "final_probabilities": [
+          0.764312612821747,
+          0.23568738717825294,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "zero_new_tokens_observation": {
+      "type": "ValueError",
+      "message": "`max_new_tokens` must be greater than 0, but is 0."
+    }
+  }
+}

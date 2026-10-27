@@ -1,8 +1,8 @@
-# C03 课程交接（截至 Lesson04）
+# C03 课程交接（截至 Lesson05）
 
 更新日期：2026-10-27（Asia/Shanghai）。
 
-本文件保留 Lesson01 交接详情和 Lesson02–03 历史结果，并更新截至 Lesson04 的进度。当前接续文档为 [Lesson04→05 交接](C03-Lesson04-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
+本文件保留 Lesson01–04 历史结果，并更新截至 Lesson05 的进度。当前接续文档为 [Lesson05→06 交接](C03-Lesson05-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
 
 ## 1. 接续入口
 
@@ -10,11 +10,12 @@
 
 **C03 Lesson01 已讲授，四道作业答案已提供，用户索要答案按约定接受为私下完成确认；用户原课堂脚本已检查，27 项本地检查通过。** 原文件、助手补充和运行证据分别记录，不把参考答案当成用户原有独立实现。
 
-**最新接续位置：Lesson04 已讲授，四题答案已给出，用户索要答案按约定接受为私下完成确认；课堂与参考代码完成 35 项检查，已实际执行手写贪心生成。下一次要求“下一节课”时进入 Lesson05。** Lesson05–08 尚未开始。
+**最新接续位置：Lesson05 已讲授，用户明确确认作业完成，四题详细答案已给出；课堂与参考代码完成38项检查，已实际执行generate贪心与采样。下一次要求“下一节课”时进入Lesson06。** Lesson06–08尚未开始。
 
 ## 2. 教学约定
 
 - 聊天是主要课堂：先讲完整知识点，再给教师代码和逐段解释，说明易错点，最后统一布置作业。
+- 用户明确要求讲解更详细：先回顾前课与动机，术语逐项说明，数学用具体数字推导，张量标出每步形状；先解释每段目的，再逐行解释关键代码、参数和输入输出，结合实测结果与参数变化说明，最后统一给四题。
 - 用户索要作业答案，按既有约定接受为私下完成确认，不另要求截图或证明材料。
 - 区分“已经授课”“用户确认完成”“助手补充参考实现”和“实际运行通过”，据实更新进度。
 - 保留用户文件及注释。原文件名 `lesosn01.py` 虽有拼写错误，仍原样保留，使用标准入口解决运行命名问题。
@@ -205,4 +206,21 @@ Lesson03 当时接续至 Lesson04 手写自回归循环。该课现已授课并�
 
 运行：`python -m hugging_learn.lesson04`、`python -m hugging_learn.homework.lesson04_answers`、`python verify_lesson04.py --report /tmp/c03-lesson04-verification.json`。
 
-下一课 Lesson05 连接 `model.generate`，明确贪心设置并比较编号，再讲采样、temperature、top-k/top-p 和随机性。Lesson05–08 尚未开始；批量与对话留给 Lesson06，KV cache 详解留给 Lesson07。本课没有训练、调用 generate 或评估生成质量。
+Lesson04 当时接续 Lesson05，后者现已授课并复核，最新结果见第11节。Lesson04 历史范围没有训练、调用 generate 或评估生成质量；后续 generate 实验不反写为 Lesson04 已完成。
+
+## 11. Lesson05 最新结果与 Lesson06 接续
+
+2026-10-27 已讲授 Lesson05。用户明确说“完成了”，要求给答案、检查文件并同步GitHub。当前lesson05.py运行通过，连同用户新增的字典展开注释逐字节保留；完整四题参考、讲义、验证器、验收与交接为助手补充。源码哈希与来源在运行JSON中登记，未额外验收用户独立能力。
+
+沿用固定Qwen与CPU float32、eval、inference_mode、单句无PAD、use_cache=False。课堂T=9，贪心八步与手写编号一致，总长度17；第一题三步新增[8997,100012,100364]，完整[1,12]。两条输入T=[2,9]，新增4/8得到完整长度[6,10,13,17]；同一max_length=12实测新增[10,3]。模型自带max_new_tokens=2048，改用总上限时显式清除；本版本新增上限0报ValueError。
+
+采样固定temperature=0.8、top_k=20、top_p=0.9，上限8。两次重设42逐编号一致，43本次不同；只设一次42的连续三轮本次产生不同结果。教学logits[3,2,1,0,-1]的温度、过滤和归一化另外执行，不当作模型实际候选。共38项检查通过，真实生成均按长度停止，没有生成EOS；没有训练、质量评估或性能结论。
+
+- [用户课堂](../hugging_learn/lesson05.py)、[完整四题代码](../hugging_learn/homework/lesson05_answers.py)
+- [详细讲义](C03-Lesson05-notes.md)、[四题答案](C03-Lesson05-homework.md)
+- [验收与来源](C03-Lesson05-acceptance.md)、[实际运行JSON](C03-Lesson05-verification.json)
+- [Lesson05→06交接](C03-Lesson05-handoff.md)、[验证器](../verify_lesson05.py)
+
+运行：`python -m hugging_learn.lesson05`、`python -m hugging_learn.homework.lesson05_answers`、`python verify_lesson05.py --report /tmp/c03-lesson05-verification.json`。
+
+下一课Lesson06：批量生成、补齐方向、批量切片、基础模型与指令模型、聊天模板。先核对本地缓存和当前基础模型模板能力，不假定已缓存指令模型。Lesson06–08未开始，KVcache细节留Lesson07。按用户要求保持详细授课，不为赶进度省略推导；“下一课”只教学，GitHub同步按明确指令执行。
