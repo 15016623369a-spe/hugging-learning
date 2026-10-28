@@ -2,9 +2,22 @@
 
 从真实 Tokenizer 接续 Transformer 基础，学习 Hugging Face 模型推理与文本生成。
 
-更新日期：2026-10-27（Asia/Shanghai）。C03 Lesson01–05 已授课、参考答案已给出，固定样例复核通过；Lesson05 用户已明确确认完成。Lesson06–08 尚未开始，下一课为 Lesson06。
+更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–06 已授课、参考答案已给出，固定样例复核通过；Lesson06 索要答案按既有约定登记私下完成确认。Lesson07–08 尚未开始，下一课为 Lesson07。
 
-## 当前课程：Lesson05
+## 当前课程：Lesson06
+
+不同长度文本左补齐组成批次，区分共同宽度与真实长度，正确截取续写；学习角色消息、聊天模板、tokenize两种路径、助手开头与手动历史。
+
+- [详细讲义与 tokenize True/False 专项说明](docs/C03-Lesson06-notes.md)
+- [四道作业与详细参考答案](docs/C03-Lesson06-homework.md)
+- [可运行完整四题代码](hugging_learn/homework/lesson06_answers.py)
+- [验收与来源](docs/C03-Lesson06-acceptance.md)
+- [实际运行记录](docs/C03-Lesson06-verification.json)
+- [Lesson06→07 交接](docs/C03-Lesson06-handoff.md)
+
+用户原课堂 `hugging_learn/lesoon06.py` 原名与全部内容保留，标准入口 `hugging_learn/lesson06.py` 执行同一文件。40 项检查通过；作业长度 `[1,3,10]`、左PAD `[9,7,0]`，四步生成 `[3,10]→[3,14]`，批量与逐条编号一致。聊天 `[2,43]→[2,51]`；一步与两步模板编码逐编号相同，手动历史下一轮 `[1,50]`。模板不改变基础模型权重，短续写不作为知识定义或指令质量验收。
+
+## Lesson05 资料
 
 将手写循环与 `model.generate` 的贪心结果逐编号对照，再比较采样、temperature、top-k/top-p、两种长度上限和随机种子。
 
@@ -13,7 +26,7 @@
 - [可运行完整四题代码](hugging_learn/homework/lesson05_answers.py)
 - [验收与来源](docs/C03-Lesson05-acceptance.md)
 - [实际运行记录](docs/C03-Lesson05-verification.json)
-- [Lesson05→06 交接](docs/C03-Lesson05-handoff.md)
+- [Lesson05→06 历史交接](docs/C03-Lesson05-handoff.md)
 
 用户 `hugging_learn/lesson05.py` 及字典展开学习注释逐字节保留。38 项检查通过；三步贪心新增 `[8997,100012,100364]`，与手写循环一致。相同种子重设、只设一次种子的连续采样、不同输入长度、教学概率过滤均实际执行，真实生成与手工分数分别记录。完整答案另存，不覆盖课堂练习。
 
@@ -91,11 +104,14 @@ python verify_lesson04.py --report /tmp/c03-lesson04-verification.json
 python -m hugging_learn.lesson05
 python -m hugging_learn.homework.lesson05_answers
 python verify_lesson05.py --report /tmp/c03-lesson05-verification.json
+python -m hugging_learn.lesson06
+python -m hugging_learn.homework.lesson06_answers
+python verify_lesson06.py --report /tmp/c03-lesson06-verification.json
 ```
 
-课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/homework/lesson05_answers.py`。
+课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson06.py`、`python hugging_learn/homework/lesson06_answers.py`。原名 `lesoon06.py` 也保留可运行。
 
-当前机器已有 Lesson01–05 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
+当前机器已有 Lesson01–06 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
 
 ```sh
 python -m pip install -r requirements.txt
@@ -112,8 +128,9 @@ python -m hugging_learn.download_model
 - Lesson03：沿用 Lesson02 的固定模型；31 项检查通过，用户课堂 T=9，作业 T=[2,5,10]；float64 softmax 仅用于观察概率。
 - Lesson04：沿用同一固定模型；35 项检查通过，已实际执行手写贪心生成循环。真实样例按长度停止，EOS 分支的受控检查单独记录。
 - Lesson05：沿用同一固定模型；38 项检查通过，已实际执行 generate 贪心与采样。max_length 实验显式清除模型自带 max_new_tokens；温度与过滤的教学分数另列。
+- Lesson06：沿用同一基础模型；40 项检查通过，实际执行批量与逐条生成、模板编码、手动历史。PAD/EOS 同号，消息结束标记与生成 EOS 分开记录；手工 EOS/PAD 示例不作为自然生成轨迹。
 
-截至 Lesson05 已执行手写循环、generate 贪心和采样；没有训练或生成质量评估。助手参考代码运行通过、用户完成确认与独立实现分别记录。
+截至 Lesson06 已执行手写循环、generate 贪心/采样、批量生成和聊天模板；没有训练、Instruct权重质量评估或性能测量。助手参考代码运行通过、用户完成确认与独立实现分别记录。
 
 聊天为主要课堂。用户要求更详细：先回顾与说明动机，再用具体数字推导、标明张量形状、逐段逐行解释代码、解读实测结果与常见错误，最后统一给出作业。后续课程和 GitHub 同步按用户指令推进。
 
