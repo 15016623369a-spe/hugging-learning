@@ -187,4 +187,4 @@ python -m hugging_learn.homework.lesson06_answers --report /tmp/c03-lesson06-ans
 python verify_lesson06.py --report /tmp/c03-lesson06-verification.json
 ```
 
-标准课堂入口执行原名lesoon06.py；原文件也可直接运行。答案支持直接脚本或模块运行。40项固定检查通过，详见[验收与来源](C03-Lesson06-acceptance.md)。
+课堂统一为单一 lesson06.py，支持直接运行或模块运行。答案支持直接脚本或模块运行。40项固定检查通过，详见[验收与来源](C03-Lesson06-acceptance.md)。

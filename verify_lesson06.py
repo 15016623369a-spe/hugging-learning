@@ -34,12 +34,11 @@ def main():
 
     output = io.StringIO()
     with redirect_stdout(output):
-        wrapper = runpy.run_module("hugging_learn.lesson06", run_name="__main__")
-    scope = wrapper["classroom"]
+        scope = runpy.run_module("hugging_learn.lesson06", run_name="__main__")
     model, tokenizer = scope["model"], scope["tokenizer"]
     parameter = next(model.parameters())
-    check("标准入口实际执行原名课堂文件", scope["__file__"] == str(ROOT/"hugging_learn/lesoon06.py") and "普通文本批量生成" in output.getvalue())
-    check("用户课堂字节和注释保留", hashlib.sha256((ROOT/"hugging_learn/lesoon06.py").read_bytes()).hexdigest() == CLASSROOM_HASH)
+    check("Lesson06单一课堂文件实际运行", scope["__file__"] == str(ROOT/"hugging_learn/lesson06.py") and sorted((ROOT/"hugging_learn").glob("*06.py")) == [ROOT/"hugging_learn/lesson06.py"] and "普通文本批量生成" in output.getvalue())
+    check("用户课堂字节和注释保留", hashlib.sha256((ROOT/"hugging_learn/lesson06.py").read_bytes()).hexdigest() == CLASSROOM_HASH)
     check("沿用固定Qwen基础模型和CPU float32", type(model).__name__ == "Qwen2ForCausalLM" and scope["config"].hidden_size == 896 and parameter.device.type == "cpu" and parameter.dtype == torch.float32)
     check("课堂处于eval并显式贪心/无缓存", not model.training and scope["common"]["do_sample"] is False and scope["common"]["use_cache"] is False and scope["common"]["max_new_tokens"] == 8)
     check("课堂左补齐、PAD和EOS配置", tokenizer.padding_side == "left" and tokenizer.pad_token_id == tokenizer.eos_token_id == scope["common"]["eos_token_id"] == 151643)
@@ -81,16 +80,16 @@ def main():
     check("模板消息结束编号与模型EOS不同", answers["special_token_ids"]["<|im_end|>"] == 151645 and model.generation_config.eos_token_id == 151643)
     check("所有模型参数未产生梯度", all(parameter.grad is None for parameter in model.parameters()))
 
-    sources = ["hugging_learn/lesoon06.py","hugging_learn/lesson06.py","hugging_learn/homework/lesson06_answers.py","verify_lesson06.py","hugging_learn/lesson05.py","hugging_learn/causal_common.py"]
+    sources = ["hugging_learn/lesson06.py","hugging_learn/homework/lesson06_answers.py","verify_lesson06.py","hugging_learn/lesson05.py","hugging_learn/causal_common.py"]
     report = {
         "verification_date":args.date, "timezone":"Asia/Shanghai",
-        "provenance":"保留用户原课堂及其原名；标准入口、答案、验证器与文档为助手补充；索要答案按约定登记私下完成确认，未另验收独立能力",
+        "provenance":"课堂统一为标准文件名，原代码与注释逐字节保留；答案、验证器与文档为助手补充；索要答案按约定登记私下完成确认，未另验收独立能力",
         "scope":answers["scope"],"model_id":MODEL_ID,"revision":REVISION,
         "python":platform.python_version(),
         "versions":{name:version(name) for name in ["torch","transformers","huggingface_hub","tokenizers"]},
         "source_sha256":{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sources},
         "checks_passed":len(checks),"checks":checks,
-        "classroom":{"original_file":"hugging_learn/lesoon06.py","standard_entry":"hugging_learn/lesson06.py","options":scope["common"],"text_input_shape":list(scope["text_inputs"]["input_ids"].shape),"text_replies":scope["text_replies"],"chat_input_shape":list(scope["chat_inputs"]["input_ids"].shape),"chat_replies":scope["chat_replies"],"next_input_shape":list(scope["next_inputs"]["input_ids"].shape),"stdout":output.getvalue()},
+        "classroom":{"file":"hugging_learn/lesson06.py","options":scope["common"],"text_input_shape":list(scope["text_inputs"]["input_ids"].shape),"text_replies":scope["text_replies"],"chat_input_shape":list(scope["chat_inputs"]["input_ids"].shape),"chat_replies":scope["chat_replies"],"next_input_shape":list(scope["next_inputs"]["input_ids"].shape),"stdout":output.getvalue()},
         "answers":answers,
     }
     if args.report:

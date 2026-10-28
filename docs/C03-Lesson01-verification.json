@@ -1,8 +1,9 @@
 {
-  "verification_date": "2026-10-24",
+  "verification_date": "2026-10-28",
   "timezone": "Asia/Shanghai",
   "scope": "C03 Lesson01 固定 Tokenizer 与 CPU 样例；不加载模型、不训练、不调用付费 API",
-  "provenance": "原课堂文件保留；作业参考与复核脚本为助手补充；索要答案按约定接受为用户私下完成确认，运行通过不等同于独立实现证明",
+  "classroom_file": "hugging_learn/lesson01.py",
+  "provenance": "课堂统一为标准文件名，原代码和注释逐字节保留；作业参考与复核脚本为助手补充；索要答案按约定接受为用户私下完成确认，运行通过不等同于独立实现证明",
   "python": "3.11.16",
   "versions": {
     "torch": "2.14.0",
@@ -16,7 +17,7 @@
   "checks_passed": 27,
   "checks": [
     {
-      "name": "用户原课堂文件逐字节保留",
+      "name": "Lesson01仅保留一个课堂文件且代码注释完整",
       "passed": true
     },
     {
@@ -116,7 +117,7 @@
       "passed": true
     },
     {
-      "name": "标准入口保留原课堂输出",
+      "name": "模块运行与直接运行输出一致",
       "passed": true
     },
     {

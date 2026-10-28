@@ -2,9 +2,11 @@
 
 从真实 Tokenizer 接续 Transformer 基础，学习 Hugging Face 模型推理与文本生成。
 
-更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–06 已授课、参考答案已给出，固定样例复核通过；Lesson06 索要答案按既有约定登记私下完成确认。Lesson07–08 尚未开始，下一课为 Lesson07。
+更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–06 已授课、参考答案已给出，固定样例复核通过；Lesson06 索要答案按既有约定登记私下完成确认。Lesson07 已在聊天授课，作业待核对；Lesson08 尚未开始。
 
-## 当前课程：Lesson06
+课堂文件统一命名为 `hugging_learn/lessonXX.py`，每课只保留一份课堂实现；作业参考放在 `hugging_learn/homework/`。Lesson01、Lesson06 已完成[重复文件合并](docs/C03-file-organization.md)。
+
+## 最近完成验收：Lesson06
 
 不同长度文本左补齐组成批次，区分共同宽度与真实长度，正确截取续写；学习角色消息、聊天模板、tokenize两种路径、助手开头与手动历史。
 
@@ -15,7 +17,7 @@
 - [实际运行记录](docs/C03-Lesson06-verification.json)
 - [Lesson06→07 交接](docs/C03-Lesson06-handoff.md)
 
-用户原课堂 `hugging_learn/lesoon06.py` 原名与全部内容保留，标准入口 `hugging_learn/lesson06.py` 执行同一文件。40 项检查通过；作业长度 `[1,3,10]`、左PAD `[9,7,0]`，四步生成 `[3,10]→[3,14]`，批量与逐条编号一致。聊天 `[2,43]→[2,51]`；一步与两步模板编码逐编号相同，手动历史下一轮 `[1,50]`。模板不改变基础模型权重，短续写不作为知识定义或指令质量验收。
+课堂代码统一保存在 `hugging_learn/lesson06.py`，原代码与全部注释逐字节保留，每课仅保留一个课堂文件。40 项检查通过；作业长度 `[1,3,10]`、左PAD `[9,7,0]`，四步生成 `[3,10]→[3,14]`，批量与逐条编号一致。聊天 `[2,43]→[2,51]`；一步与两步模板编码逐编号相同，手动历史下一轮 `[1,50]`。模板不改变基础模型权重，短续写不作为知识定义或指令质量验收。
 
 ## Lesson05 资料
 
@@ -79,7 +81,7 @@ Lesson03 更新时已同步用户对 `lesson02.py` 两行参数的缩进整理�
 - [运行记录](docs/C03-Lesson01-verification.json)
 - [2026-10-24 历史交接](docs/C03-Lesson01-handoff.md)
 
-`hugging_learn/lesosn01.py` 为用户原课堂文件，内容与注释逐字节保留。标准入口 `hugging_learn/lesson01.py` 执行同一原文件。
+Lesson01 课堂统一保存在 `hugging_learn/lesson01.py`，原代码与全部注释逐字节保留。
 
 ## 环境与运行
 
@@ -109,7 +111,7 @@ python -m hugging_learn.homework.lesson06_answers
 python verify_lesson06.py --report /tmp/c03-lesson06-verification.json
 ```
 
-课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson06.py`、`python hugging_learn/homework/lesson06_answers.py`。原名 `lesoon06.py` 也保留可运行。
+课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson06.py`、`python hugging_learn/homework/lesson06_answers.py`。
 
 当前机器已有 Lesson01–06 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
 

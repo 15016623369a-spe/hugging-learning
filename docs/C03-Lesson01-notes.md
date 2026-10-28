@@ -1,6 +1,6 @@
 # C03 Lesson01：真实 Tokenizer 与模型输入编码
 
-本讲义由助手根据本聊天课堂整理。教师代码见 `hugging_learn/lesosn01.py`；四题参考代码另存于 `hugging_learn/homework/lesson01_answers.py`。
+本讲义由助手根据本聊天课堂整理。教师代码见 `hugging_learn/lesson01.py`；四题参考代码另存于 `hugging_learn/homework/lesson01_answers.py`。
 
 ## 1. 从 C02 接续
 

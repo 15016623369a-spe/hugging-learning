@@ -1,8 +1,8 @@
-# C03 课程交接（截至 Lesson06）
+# C03 课程交接（截至 Lesson07 授课）
 
 更新日期：2026-10-28（Asia/Shanghai）。
 
-本文件保留 Lesson01–05 历史结果，并更新截至 Lesson06 的进度。当前接续文档为 [Lesson06→07 交接](C03-Lesson06-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
+本文件保留 Lesson01–06 历史验收结果，并更新到 Lesson07 已授课、作业待核对的进度。当前接续文档为 [Lesson06→07 交接](C03-Lesson06-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
 
 ## 1. 接续入口
 
@@ -10,7 +10,7 @@
 
 **C03 Lesson01 已讲授，四道作业答案已提供，用户索要答案按约定接受为私下完成确认；用户原课堂脚本已检查，27 项本地检查通过。** 原文件、助手补充和运行证据分别记录，不把参考答案当成用户原有独立实现。
 
-**最新接续位置：Lesson06已讲授，四题详细答案已给出；用户索要答案按既有约定登记私下完成确认。课堂与参考代码完成40项检查，实际执行批量生成、模板与手动历史。下一次要求“下一节课”时进入Lesson07。** Lesson07–08尚未开始。
+**最新接续位置：Lesson06已讲授，四题详细答案已给出；用户索要答案按既有约定登记私下完成确认。课堂与参考代码完成40项检查，实际执行批量生成、模板与手动历史。随后 Lesson07 已在聊天授课，作业待核对；下一次要求“下一节课”时进入 Lesson08。** Lesson08 尚未开始。
 
 ## 2. 教学约定
 
@@ -18,8 +18,8 @@
 - 用户明确要求讲解更详细：先回顾前课与动机，术语逐项说明，数学用具体数字推导，张量标出每步形状；先解释每段目的，再逐行解释关键代码、参数和输入输出，结合实测结果与参数变化说明，最后统一给四题。
 - 用户索要作业答案，按既有约定接受为私下完成确认，不另要求截图或证明材料。
 - 区分“已经授课”“用户确认完成”“助手补充参考实现”和“实际运行通过”，据实更新进度。
-- 保留用户文件及注释。原文件名 `lesosn01.py` 虽有拼写错误，仍原样保留，使用标准入口解决运行命名问题。
-- Lesson06原文件名为`lesoon06.py`，同样保留；标准`lesson06.py`通过runpy执行原课堂。用户追问tokenize True/False，一步与两步编码的区别须继续明确解释。
+- 保留用户代码与全部注释。用户已要求合并重复文件：Lesson01、Lesson06 每课只保留一个标准 lessonXX.py，旧拼写文件及转发入口已移除，后续不再增加同类入口。
+- 用户追问tokenize True/False，一步与两步编码的区别须继续明确解释。
 - 用户说“下一节课”时继续教学；只有明确要求同步时才提交 GitHub。不自动创建新聊天。
 
 ## 3. Lesson01 的目标与范围
@@ -108,8 +108,7 @@ Tokenizer：`google-bert/bert-base-chinese`。
 
 | 文件 | 用途与来源 |
 |---|---|
-| [lesosn01.py](../hugging_learn/lesosn01.py) | 用户原有课堂文件，内容与注释原样保留 |
-| [lesson01.py](../hugging_learn/lesson01.py) | 助手补充的标准运行入口，执行上述原文件 |
+| [lesson01.py](../hugging_learn/lesson01.py) | 合并后的单一课堂文件，用户原代码与注释完整保留 |
 | [common.py](../hugging_learn/common.py) | 助手补充的统一 Tokenizer、revision 和缓存配置 |
 | [download_tokenizer.py](../hugging_learn/download_tokenizer.py) | 首次准备分词文件缓存 |
 | [lesson01_answers.py](../hugging_learn/homework/lesson01_answers.py) | 助手补充的四题可运行参考答案 |
@@ -228,7 +227,7 @@ Lesson05当时接续Lesson06；后者现已授课与复核，最新结果见第1
 
 ## 12. Lesson06最新结果与Lesson07接续
 
-2026-10-28已讲授Lesson06并解释tokenize True/False。用户随后要求给出答案、检查文件、同步GitHub，并特别要求更新Markdown。本轮保留原课堂`lesoon06.py`全部字节与原名，助手新增标准入口`lesson06.py`，四题完整代码、讲义、题解、验证器、验收与交接单独补充。用户完成确认、助手参考与运行证据分别登记，未另验收独立能力。
+2026-10-28已讲授Lesson06并解释tokenize True/False。用户随后要求给出答案、检查文件、同步GitHub，并特别要求更新Markdown。课堂现统一为单一`lesson06.py`，原代码与注释逐字节保留；四题完整代码、讲义、题解、验证器、验收与交接单独补充。用户完成确认、助手参考与运行证据分别登记，未另验收独立能力。
 
 固定Qwen基础模型与revision、CPU float32、eval、inference_mode、左补齐、use_cache=False。课堂普通输入T=[2,5,9]、聊天T=[27,43]；作业普通输入T=[1,3,10]、左PAD=[9,7,0]，四步生成[3,10]→[3,14]，批量与逐条编号相同。错误按真实长度切片得到“订单价为10”，按共同宽度切片才是“价为10”。
 
@@ -236,11 +235,11 @@ Lesson05当时接续Lesson06；后者现已授课与复核，最新结果见第1
 
 40项固定检查通过；完整答案直接脚本独立运行结果与验证器一致。真实样例均按新增上限结束，没有EOS；手工EOS/PAD示例单列来源。不训练、不评价Instruct权重或短续写质量，不测性能或KVcache。
 
-- [用户原课堂](../hugging_learn/lesoon06.py)、[标准入口](../hugging_learn/lesson06.py)、[完整四题代码](../hugging_learn/homework/lesson06_answers.py)
+- [课堂文件](../hugging_learn/lesson06.py)、[完整四题代码](../hugging_learn/homework/lesson06_answers.py)
 - [详细讲义](C03-Lesson06-notes.md)、[四题题解](C03-Lesson06-homework.md)
 - [验收与来源](C03-Lesson06-acceptance.md)、[实际运行JSON](C03-Lesson06-verification.json)
 - [Lesson06→07交接](C03-Lesson06-handoff.md)、[验证器](../verify_lesson06.py)
 
 运行：`python -m hugging_learn.lesson06`、`python -m hugging_learn.homework.lesson06_answers`、`python verify_lesson06.py --report /tmp/c03-lesson06-verification.json`。
 
-下一课Lesson07讲推理资源与复现：上下文预算、KVcache缓存内容与形状、cache开关对照、内存、耗时、版本和实验记录。Lesson07–08未开始。继续按用户要求详细推导、逐段逐行讲解，最后统一四题；只有明确要求同步才更新GitHub。
+Lesson07 已在聊天讲授推理资源与复现：上下文预算、KVcache缓存内容与形状、cache开关对照、内存、耗时、版本和实验记录；作业待核对，未登记用户完成。下一课为 Lesson08。继续按用户要求详细推导、逐段逐行讲解，最后统一四题；只有明确要求同步才更新GitHub。

@@ -1,7 +1,7 @@
 {
   "verification_date": "2026-10-28",
   "timezone": "Asia/Shanghai",
-  "provenance": "保留用户原课堂及其原名；标准入口、答案、验证器与文档为助手补充；索要答案按约定登记私下完成确认，未另验收独立能力",
+  "provenance": "课堂统一为标准文件名，原代码与注释逐字节保留；答案、验证器与文档为助手补充；索要答案按约定登记私下完成确认，未另验收独立能力",
   "scope": "固定基础模型、CPU float32、eval、inference_mode、左补齐、use_cache=False；批量与模板格式；不训练，不评价指令质量",
   "model_id": "Qwen/Qwen2.5-0.5B",
   "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
@@ -13,17 +13,16 @@
     "tokenizers": "0.23.3"
   },
   "source_sha256": {
-    "hugging_learn/lesoon06.py": "51db515e0433de6dc2246e2b0bf1da3cf6e899f26f5a5235c6917dfb187ca184",
-    "hugging_learn/lesson06.py": "bfe9a8b16d31e9a45810872d84788ea3c335ea00516af0df4fdec1da98da905c",
+    "hugging_learn/lesson06.py": "51db515e0433de6dc2246e2b0bf1da3cf6e899f26f5a5235c6917dfb187ca184",
     "hugging_learn/homework/lesson06_answers.py": "b692caf7050271655fc601a361c2312da68220701e17d879eb00d3e4200f24f8",
-    "verify_lesson06.py": "c976455acc6206f1ed400a728c9fe94dcc80b55cb5bea76781e9a2fdb0bdf0d5",
+    "verify_lesson06.py": "4afc7252d8767b86b55e89614cdd63000ecfd375725aecbddfd793f691c7f368",
     "hugging_learn/lesson05.py": "fdb29b74c3c2536321a120b1d667b978e31e31c521bdc037204100d06e7577c2",
     "hugging_learn/causal_common.py": "f36b5ed8ee51980881498f32e8313d46f7e174d63324b883da7f532bc495b152"
   },
   "checks_passed": 40,
   "checks": [
     {
-      "name": "标准入口实际执行原名课堂文件",
+      "name": "Lesson06单一课堂文件实际运行",
       "passed": true
     },
     {
@@ -184,8 +183,7 @@
     }
   ],
   "classroom": {
-    "original_file": "hugging_learn/lesoon06.py",
-    "standard_entry": "hugging_learn/lesson06.py",
+    "file": "hugging_learn/lesson06.py",
     "options": {
       "max_new_tokens": 8,
       "do_sample": false,

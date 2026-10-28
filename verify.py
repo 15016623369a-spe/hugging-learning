@@ -1,5 +1,7 @@
-"""助手补充：离线复核原课堂代码、标准入口及四题参考结果。"""
+"""助手补充：离线复核单一课堂文件的直接/模块运行与四题参考结果。"""
 import argparse
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from contextlib import redirect_stdout
 import hashlib
 import io
@@ -24,6 +26,7 @@ ORIGINAL_SHA256 = "07206df58b7dcd8415b11664025c51ded13c3d6c1fca4eaa33ef5d803db07
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", type=Path, help="可选的 JSON 报告输出路径")
+    parser.add_argument("--date", default=datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat())
     args = parser.parse_args()
     checks = []
 
@@ -32,8 +35,8 @@ def main():
             raise AssertionError(name)
         checks.append({"name": name, "passed": True})
 
-    source = ROOT / "hugging_learn" / "lesosn01.py"
-    check("用户原课堂文件逐字节保留", hashlib.sha256(source.read_bytes()).hexdigest() == ORIGINAL_SHA256)
+    source = ROOT / "hugging_learn" / "lesson01.py"
+    check("Lesson01仅保留一个课堂文件且代码注释完整", sorted((ROOT / "hugging_learn").glob("*01.py")) == [source] and hashlib.sha256(source.read_bytes()).hexdigest() == ORIGINAL_SHA256)
     output = io.StringIO()
     with redirect_stdout(output):
         scope = runpy.run_path(str(source), run_name="__main__")
@@ -74,15 +77,16 @@ def main():
     check("不等长序列未补齐时拒绝组成普通二维张量", ragged_rejected)
     env = dict(os.environ, HF_HUB_OFFLINE="1", TRANSFORMERS_OFFLINE="1", PYTHONDONTWRITEBYTECODE="1")
     standard = subprocess.run([sys.executable, "-m", "hugging_learn.lesson01"], cwd=ROOT, env=env, capture_output=True, text=True, check=True, timeout=60)
-    check("标准入口保留原课堂输出", standard.stdout == output.getvalue())
+    check("模块运行与直接运行输出一致", standard.stdout == output.getvalue())
     homework = subprocess.run([sys.executable, "-m", "hugging_learn.homework.lesson01_answers"], cwd=ROOT, env=env, capture_output=True, text=True, check=True, timeout=60)
     check("参考答案入口可独立运行", json.loads(homework.stdout) == answers)
 
     report = {
-        "verification_date": "2026-10-24",
+        "verification_date": args.date,
         "timezone": "Asia/Shanghai",
         "scope": "C03 Lesson01 固定 Tokenizer 与 CPU 样例；不加载模型、不训练、不调用付费 API",
-        "provenance": "原课堂文件保留；作业参考与复核脚本为助手补充；索要答案按约定接受为用户私下完成确认，运行通过不等同于独立实现证明",
+        "classroom_file": "hugging_learn/lesson01.py",
+        "provenance": "课堂统一为标准文件名，原代码和注释逐字节保留；作业参考与复核脚本为助手补充；索要答案按约定接受为用户私下完成确认，运行通过不等同于独立实现证明",
         "python": platform.python_version(),
         "versions": {n: version(n) for n in ["torch", "transformers", "huggingface_hub", "tokenizers"]},
         "model_id": MODEL_ID,

@@ -1,6 +1,6 @@
 # C03 Lesson06：批量生成与对话输入
 
-更新日期：2026-10-28（Asia/Shanghai）。聊天为主要课堂，本讲义为助手整理。[用户课堂 lesoon06.py](../hugging_learn/lesoon06.py) 的原名、内容与注释保留；[标准入口 lesson06.py](../hugging_learn/lesson06.py)执行同一文件。
+更新日期：2026-10-28（Asia/Shanghai）。聊天为主要课堂，本讲义为助手整理。[课堂 lesson06.py](../hugging_learn/lesson06.py) 为合并后的单一实现，原代码与注释逐字节保留。
 
 ## 1. 从单条生成到批量生成
 

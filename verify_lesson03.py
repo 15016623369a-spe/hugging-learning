@@ -95,7 +95,7 @@ def main():
         "python":platform.python_version(),
         "versions":{n:version(n) for n in ["torch","transformers","huggingface_hub","tokenizers"]},
         "model_id":MODEL_ID,"revision":REVISION,
-        "source_sha256":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [source,ROOT/"hugging_learn/lesson02.py",ROOT/"hugging_learn/lesosn01.py"]},
+        "source_sha256":{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [source,ROOT/"hugging_learn/lesson02.py",ROOT/"hugging_learn/lesson01.py"]},
         "checks_passed":len(checks),"checks":checks,
         "classroom":{
             "text":scope["text"],"input_ids":inputs["input_ids"].tolist(),

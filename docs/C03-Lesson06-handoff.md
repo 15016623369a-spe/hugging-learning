@@ -6,18 +6,18 @@
 
 C02 Lesson01–05按历史交接已完成。C03 Lesson01–05已授课、题解与历史检查已归档；Lesson06在本聊天已讲授，用户追问了tokenize True/False，随后要求四题答案、检查文件、同步GitHub，特别要求更新Markdown。本轮给出详细答案、补齐文件并通过40项固定检查。
 
-下一次用户说“下一课”进入 **Lesson07：推理资源与复现记录**。Lesson07–08尚未开始。此前handoff为历史快照，当前以本文件和[通用交接](handoff.md)为准。
+后续已在本聊天讲授 **Lesson07：推理资源与复现记录**，作业尚未核对；用户再说“下一课”时进入 Lesson08。此前handoff为历史快照，当前以本文件和[通用交接](handoff.md)为准。
 
 ## 教学约定
 
 - 聊天为主要课堂，不能只给文档链接代替讲解。
 - 用户明确要求详细：先回顾前课和动机，逐项解释术语；用具体数字推导，标出张量形状；解释每段代码目的和关键行、参数、输入输出；解读实测结果、常见错误，最后统一四题作业。
 - 用户索要答案按既有约定登记私下完成确认，不另要求截图。用户课堂、助手参考、实际运行证据和独立能力分别登记。
-- 保留用户原文件和注释；“下一课”只教学，只有明确要求同步才更新GitHub；不自动创建新聊天。
+- 保留用户代码与全部注释，每课只维护一个标准课堂文件；“下一课”只教学，只有明确要求同步才更新GitHub；不自动创建新聊天。
 
 ## 文件与命名
 
-用户原文件[lesoon06.py](../hugging_learn/lesoon06.py)原名与全部字节保留，SHA256 `51db515e0433de6dc2246e2b0bf1da3cf6e899f26f5a5235c6917dfb187ca184`。助手标准入口[lesson06.py](../hugging_learn/lesson06.py)通过runpy执行同一文件，不复制另一份课堂实现。
+按用户要求，课堂已合并为单一 [lesson06.py](../hugging_learn/lesson06.py)，代码与注释逐字节保留，SHA256 `51db515e0433de6dc2246e2b0bf1da3cf6e899f26f5a5235c6917dfb187ca184`。每课只维护一个标准课堂文件，取消转发入口；详见[文件整理记录](C03-file-organization.md)。
 
 完整四题代码[lesson06_answers.py](../hugging_learn/homework/lesson06_answers.py)另存，提供describe_inputs、generate_batch和collect_answers。入口：`python -m hugging_learn.lesson06`、`python -m hugging_learn.homework.lesson06_answers`、`python verify_lesson06.py --report /tmp/c03-lesson06-verification.json`。
 

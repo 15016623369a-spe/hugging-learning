@@ -16,7 +16,7 @@ C02 Lesson01–05 按此前交接已完成，本轮不重复验收旧模块。C0
 
 - 仓库：[hugging-learning](https://github.com/15016623369a-spe/hugging-learning)。
 - 本地根目录：`/Users/jace/agent学习/hugging-learning`，课程文件在 `hugging_learn/`。
-- 原文件 `lesosn01.py` 完整保留；标准入口为 `python -m hugging_learn.lesson01`。
+- 2026-10-28 统一为单一课堂文件 `lesson01.py`，原代码与注释完整保留；运行 `python -m hugging_learn.lesson01`。本交接的教学进度仍为历史快照。
 - 参考答案为 `python -m hugging_learn.homework.lesson01_answers`。
 - 复核为 `python verify.py --report /tmp/c03-lesson01-verification.json`。
 - 沿用 fde，Python 3.11.16、PyTorch 2.14.0、Transformers 5.20.2、huggingface_hub 2.2.0、tokenizers 0.23.3。

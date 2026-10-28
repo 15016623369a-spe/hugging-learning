@@ -99,7 +99,7 @@ def main():
     check("受控 EOS：追加结束编号后立即停止", controlled["new_ids"] == [8997,151643] and controlled["stop_reason"] == "eos_token" and controlled_model.calls == 2 and controlled["final_shape"] == [1,4])
     check("受控 EOS：显示时隐藏特殊标记", controlled["continuation"] == "。\n")
 
-    source_paths = ["hugging_learn/lesson04.py","hugging_learn/homework/lesson04_answers.py","hugging_learn/lesson03.py","hugging_learn/lesson02.py","hugging_learn/lesosn01.py"]
+    source_paths = ["hugging_learn/lesson04.py","hugging_learn/homework/lesson04_answers.py","hugging_learn/lesson03.py","hugging_learn/lesson02.py","hugging_learn/lesson01.py"]
     report = {
         "verification_date":args.date,"timezone":"Asia/Shanghai",
         "scope":"固定 Qwen 单句无 PAD、CPU float32、手写贪心循环与四题；另列受控 EOS 分支和手工解码，不训练、不调用 generate",
