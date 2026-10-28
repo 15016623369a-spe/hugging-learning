@@ -2,11 +2,24 @@
 
 从真实 Tokenizer 接续 Transformer 基础，学习 Hugging Face 模型推理与文本生成。
 
-更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–06 已授课、参考答案已给出，固定样例复核通过；Lesson06 索要答案按既有约定登记私下完成确认。Lesson07 已在聊天授课，作业待核对；Lesson08 尚未开始。
+更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–07 已授课、四题参考答案已给出并完成本地检查；Lesson07本轮43项检查通过，索要答案按既有约定登记私下完成确认。下一课为Lesson08，尚未开始。
 
 课堂文件统一命名为 `hugging_learn/lessonXX.py`，每课只保留一份课堂实现；作业参考放在 `hugging_learn/homework/`。Lesson01、Lesson06 已完成[重复文件合并](docs/C03-file-organization.md)。
 
-## 最近完成验收：Lesson06
+## 最近完成验收：Lesson07
+
+观察Prefill与逐token Decode，核对缓存开关，计算KV资源，并在固定CPU环境记录8/16-token的重复计时。
+
+- [详细讲义与“为什么第二次只输入一个token”](docs/C03-Lesson07-notes.md)
+- [四道作业与详细参考答案](docs/C03-Lesson07-homework.md)
+- [可运行四题代码](hugging_learn/homework/lesson07_answers.py)
+- [验收与来源](docs/C03-Lesson07-acceptance.md)
+- [实际运行记录](docs/C03-Lesson07-verification.json)
+- [Lesson07→08交接](docs/C03-Lesson07-handoff.md)
+
+课堂仅保留一个lesson07.py，原注释保留，长度检查改为读取实际新增上限；直接运行和模块运行兼容。43项检查通过；“订单金额”三次缓存长度2/3/4，新增“超过____元”；缓存开关八token编号一致；三组KV估算12/48/96MiB，原始重复耗时与中位数已记录。
+
+## Lesson06资料
 
 不同长度文本左补齐组成批次，区分共同宽度与真实长度，正确截取续写；学习角色消息、聊天模板、tokenize两种路径、助手开头与手动历史。
 
@@ -109,11 +122,14 @@ python verify_lesson05.py --report /tmp/c03-lesson05-verification.json
 python -m hugging_learn.lesson06
 python -m hugging_learn.homework.lesson06_answers
 python verify_lesson06.py --report /tmp/c03-lesson06-verification.json
+python -m hugging_learn.lesson07
+python -m hugging_learn.homework.lesson07_answers --report /tmp/c03-lesson07-answers.json
+python verify_lesson07.py --report /tmp/c03-lesson07-verification.json
 ```
 
-课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson06.py`、`python hugging_learn/homework/lesson06_answers.py`。
+课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson07.py`、`python hugging_learn/homework/lesson07_answers.py`。
 
-当前机器已有 Lesson01–06 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
+当前机器已有 Lesson01–07 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
 
 ```sh
 python -m pip install -r requirements.txt

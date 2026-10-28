@@ -1,6 +1,6 @@
 # C03 Lesson06 → Lesson07 交接
 
-更新日期：2026-10-28（Asia/Shanghai）。
+更新日期：2026-10-28（Asia/Shanghai）。本文件保留Lesson06→07历史内容；当前Lesson07已完成题解和检查，最新接续见[Lesson07→08交接](C03-Lesson07-handoff.md)。
 
 ## 当前接续
 

@@ -1,0 +1,1007 @@
+{
+  "verification_date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "provenance": "保留用户课堂代码与全部注释，仅将写死16的上下文预算改为实际生成上限；四题参考、验证器和文档为助手补充；索要答案按既有约定登记私下完成确认，未另验收独立能力",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "source_sha256": {
+    "hugging_learn/lesson07.py": "b628be3eba3db1a3715fc9fc518d5b0c0a88f033d6168facbfdc5e893145f69d",
+    "hugging_learn/homework/lesson07_answers.py": "29c9fd5247b4e998252112dd663e25d5744b493ec13e622b4556704e9409ba42",
+    "verify_lesson07.py": "ae500bf143c42e46a6ede680a722ef5ad5a576ad698dc4bd9e1defca0e53d5bf",
+    "hugging_learn/causal_common.py": "f36b5ed8ee51980881498f32e8313d46f7e174d63324b883da7f532bc495b152"
+  },
+  "checks_passed": 43,
+  "checks": [
+    {
+      "name": "Lesson07仅有一个课堂文件且源码符合本轮检查快照",
+      "passed": true
+    },
+    {
+      "name": "用户课堂实际运行且保留当前attention_mask题目",
+      "passed": true
+    },
+    {
+      "name": "沿用固定Qwen基础模型CPU float32与eval",
+      "passed": true
+    },
+    {
+      "name": "课堂新增上限均为8且显式对照缓存",
+      "passed": true
+    },
+    {
+      "name": "课堂原始提示词9token且模型上下文配置32768",
+      "passed": true
+    },
+    {
+      "name": "课堂两组重复计时实际完成",
+      "passed": true
+    },
+    {
+      "name": "第一题分成订单和金额两个token",
+      "passed": true
+    },
+    {
+      "name": "第一题三次选出的编号与实际续写",
+      "passed": true
+    },
+    {
+      "name": "第一题第1次：仅输入尚未处理的token与对应logits",
+      "passed": true
+    },
+    {
+      "name": "第一题第1次：Mask与缓存历史连续增长",
+      "passed": true
+    },
+    {
+      "name": "第一题第1次：24层真实KV形状与字节",
+      "passed": true
+    },
+    {
+      "name": "第一题第2次：仅输入尚未处理的token与对应logits",
+      "passed": true
+    },
+    {
+      "name": "第一题第2次：Mask与缓存历史连续增长",
+      "passed": true
+    },
+    {
+      "name": "第一题第2次：24层真实KV形状与字节",
+      "passed": true
+    },
+    {
+      "name": "第一题第3次：仅输入尚未处理的token与对应logits",
+      "passed": true
+    },
+    {
+      "name": "第一题第3次：Mask与缓存历史连续增长",
+      "passed": true
+    },
+    {
+      "name": "第一题第3次：24层真实KV形状与字节",
+      "passed": true
+    },
+    {
+      "name": "第一题最后已选择5个位置但仅4个位置进入缓存",
+      "passed": true
+    },
+    {
+      "name": "第二题缓存开关的完整编号逐项一致",
+      "passed": true
+    },
+    {
+      "name": "第二题cache=False：固定新增编号与形状",
+      "passed": true
+    },
+    {
+      "name": "第二题cache=False：贪心、前缀保留与真实停止原因",
+      "passed": true
+    },
+    {
+      "name": "第二题cache=True：固定新增编号与形状",
+      "passed": true
+    },
+    {
+      "name": "第二题cache=True：贪心、前缀保留与真实停止原因",
+      "passed": true
+    },
+    {
+      "name": "第三题使用2个KV头而非14个Q头",
+      "passed": true
+    },
+    {
+      "name": "第三题每条每token占24KiB",
+      "passed": true
+    },
+    {
+      "name": "第三题三个答案为12/48/96MiB",
+      "passed": true
+    },
+    {
+      "name": "第三题估算与第一题实际KV张量一致",
+      "passed": true
+    },
+    {
+      "name": "参数张量实际数量与字节统计",
+      "passed": true
+    },
+    {
+      "name": "第四题覆盖同一输入的8和16token上限",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8：每组预热1次、重复5次、编号一致",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8,cache=False：原始耗时与中位数",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8,cache=False：输出编号和长度",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8,cache=True：原始耗时与中位数",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8,cache=True：输出编号和长度",
+      "passed": true
+    },
+    {
+      "name": "第四题N=8：速度比按本次中位数计算",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16：每组预热1次、重复5次、编号一致",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16,cache=False：原始耗时与中位数",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16,cache=False：输出编号和长度",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16,cache=True：原始耗时与中位数",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16,cache=True：输出编号和长度",
+      "passed": true
+    },
+    {
+      "name": "第四题N=16：速度比按本次中位数计算",
+      "passed": true
+    },
+    {
+      "name": "复现记录包含实际模型版本、CPU、精度与线程",
+      "passed": true
+    },
+    {
+      "name": "所有参数没有产生梯度",
+      "passed": true
+    }
+  ],
+  "classroom": {
+    "file": "hugging_learn/lesson07.py",
+    "text": "请用一句话解释 attention_mask 的作用。",
+    "max_new_tokens": 8,
+    "stdout": "\n第 1 次前向\n本次输入： torch.Size([1, 9])\n完整 Mask： torch.Size([1, 9])\nlogits： torch.Size([1, 9, 151936])\n第一层 K： torch.Size([1, 2, 9, 64])\n第一层 V： torch.Size([1, 2, 9, 64])\n缓存长度： 9\n选出的编号： 6529\n\n第 2 次前向\n本次输入： torch.Size([1, 1])\n完整 Mask： torch.Size([1, 10])\nlogits： torch.Size([1, 1, 151936])\n第一层 K： torch.Size([1, 2, 10, 64])\n第一层 V： torch.Size([1, 2, 10, 64])\n缓存长度： 10\n选出的编号： 9999\n\n第 3 次前向\n本次输入： torch.Size([1, 1])\n完整 Mask： torch.Size([1, 11])\nlogits： torch.Size([1, 1, 151936])\n第一层 K： torch.Size([1, 2, 11, 64])\n第一层 V： torch.Size([1, 2, 11, 64])\n缓存长度： 11\n选出的编号： 54851\n\n短输入，输入长度：9\nuse_cache = False 五次耗时 = [0.5061889589997008, 0.503769833012484, 0.505317750008544, 0.5081149580073543, 0.504628833004972] 中位数 = 0.505317750008544\nuse_cache = True 五次耗时 = [0.2837816249812022, 0.28450879099546, 0.2835606249864213, 0.2823874579917174, 0.2825322499847971] 中位数 = 0.2835606249864213\n新增编号： [6529, 9999, 54851, 46944, 100751, 18493, 104949, 15946]\n新增文本：  attention_mask 是一个用于在模型中\n\n较长输入，输入长度：72\nuse_cache = False 五次耗时 = [0.7959990410017781, 0.802716916979989, 0.8000117919873446, 0.8021726250008214, 0.8024625410034787] 中位数 = 0.8021726250008214\nuse_cache = True 五次耗时 = [0.32242912499350496, 0.322197875007987, 0.3233330420043785, 0.3229044579784386, 0.32232891701278277] 中位数 = 0.32242912499350496\n新增编号： [14880, 11622, 105321, 104136, 6529, 9999, 43589, 100154]\n新增文本： 请用一句话解释 attention_mask 的作用\n"
+  },
+  "answers": {
+    "scope": "C03 Lesson07 四题；固定基础模型，本地缓存、CPU float32；不训练，不测GPU/MPS或进程峰值内存",
+    "environment": {
+      "date": "2026-10-28T16:27:03.534597+08:00",
+      "model_id": "Qwen/Qwen2.5-0.5B",
+      "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "python": "3.11.16",
+      "versions": {
+        "torch": "2.14.0",
+        "transformers": "5.20.2",
+        "huggingface_hub": "2.2.0",
+        "tokenizers": "0.23.3"
+      },
+      "machine": "arm64",
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "num_threads": 4,
+      "num_interop_threads": 10,
+      "attention_implementation": "sdpa",
+      "max_position_embeddings": 32768,
+      "eval": true,
+      "inference_mode": true,
+      "seed": null,
+      "seed_reason": "本次使用贪心，无随机采样"
+    },
+    "q1": {
+      "text": "订单金额",
+      "prompt_ids": [
+        50410,
+        80094
+      ],
+      "prompt_tokens_decoded": [
+        "订单",
+        "金额"
+      ],
+      "steps": [
+        {
+          "forward": 1,
+          "input_ids": [
+            [
+              50410,
+              80094
+            ]
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "mask_shape": [
+            1,
+            2
+          ],
+          "logits_shape": [
+            1,
+            2,
+            151936
+          ],
+          "first_K_shape": [
+            1,
+            2,
+            2,
+            64
+          ],
+          "first_V_shape": [
+            1,
+            2,
+            2,
+            64
+          ],
+          "cache_type": "DynamicCache",
+          "cache_layers": 24,
+          "cache_length_before": 0,
+          "cache_length_after": 2,
+          "cache_dtype": "torch.float32",
+          "cache_tensor_bytes": 49152,
+          "next_id": 100381,
+          "next_text": "超过",
+          "visible_sequence_length_after_selection": 3
+        },
+        {
+          "forward": 2,
+          "input_ids": [
+            [
+              100381
+            ]
+          ],
+          "input_shape": [
+            1,
+            1
+          ],
+          "mask_shape": [
+            1,
+            3
+          ],
+          "logits_shape": [
+            1,
+            1,
+            151936
+          ],
+          "first_K_shape": [
+            1,
+            2,
+            3,
+            64
+          ],
+          "first_V_shape": [
+            1,
+            2,
+            3,
+            64
+          ],
+          "cache_type": "DynamicCache",
+          "cache_layers": 24,
+          "cache_length_before": 2,
+          "cache_length_after": 3,
+          "cache_dtype": "torch.float32",
+          "cache_tensor_bytes": 73728,
+          "next_id": 2130,
+          "next_text": "____",
+          "visible_sequence_length_after_selection": 4
+        },
+        {
+          "forward": 3,
+          "input_ids": [
+            [
+              2130
+            ]
+          ],
+          "input_shape": [
+            1,
+            1
+          ],
+          "mask_shape": [
+            1,
+            4
+          ],
+          "logits_shape": [
+            1,
+            1,
+            151936
+          ],
+          "first_K_shape": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "first_V_shape": [
+            1,
+            2,
+            4,
+            64
+          ],
+          "cache_type": "DynamicCache",
+          "cache_layers": 24,
+          "cache_length_before": 3,
+          "cache_length_after": 4,
+          "cache_dtype": "torch.float32",
+          "cache_tensor_bytes": 98304,
+          "next_id": 23305,
+          "next_text": "元",
+          "visible_sequence_length_after_selection": 5
+        }
+      ],
+      "selected_ids": [
+        100381,
+        2130,
+        23305
+      ],
+      "new_text": "超过____元",
+      "cache_length_at_end": 4,
+      "visible_sequence_length_at_end": 5
+    },
+    "q2": {
+      "text": "请用一句话解释 attention_mask 的作用。",
+      "runs": {
+        "False": {
+          "input_ids": [
+            [
+              14880,
+              11622,
+              105321,
+              104136,
+              6529,
+              9999,
+              43589,
+              100154,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_ids": [
+            [
+              14880,
+              11622,
+              105321,
+              104136,
+              6529,
+              9999,
+              43589,
+              100154,
+              1773,
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946
+            ]
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_ids": [
+            6529,
+            9999,
+            54851,
+            46944,
+            100751,
+            18493,
+            104949,
+            15946
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " attention_mask 是一个用于在模型中",
+          "prefix_preserved": true,
+          "stop_reason": "length_limit",
+          "generated_count_including_eos": 8,
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643
+          }
+        },
+        "True": {
+          "input_ids": [
+            [
+              14880,
+              11622,
+              105321,
+              104136,
+              6529,
+              9999,
+              43589,
+              100154,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            9
+          ],
+          "output_ids": [
+            [
+              14880,
+              11622,
+              105321,
+              104136,
+              6529,
+              9999,
+              43589,
+              100154,
+              1773,
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946
+            ]
+          ],
+          "output_shape": [
+            1,
+            17
+          ],
+          "new_ids": [
+            6529,
+            9999,
+            54851,
+            46944,
+            100751,
+            18493,
+            104949,
+            15946
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " attention_mask 是一个用于在模型中",
+          "prefix_preserved": true,
+          "stop_reason": "length_limit",
+          "generated_count_including_eos": 8,
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643
+          }
+        }
+      },
+      "ids_equal": true
+    },
+    "q3": {
+      "layers": 24,
+      "query_heads": 14,
+      "kv_heads": 2,
+      "head_dim": 64,
+      "dtype": "torch.float32",
+      "bytes_per_value": 4,
+      "bytes_per_token_per_batch_item": 24576,
+      "cases": [
+        {
+          "batch_size": 1,
+          "cache_length": 512,
+          "bytes": 12582912,
+          "MiB": 12.0
+        },
+        {
+          "batch_size": 1,
+          "cache_length": 2048,
+          "bytes": 50331648,
+          "MiB": 48.0
+        },
+        {
+          "batch_size": 2,
+          "cache_length": 2048,
+          "bytes": 100663296,
+          "MiB": 96.0
+        }
+      ],
+      "parameter_count": 494032768,
+      "parameter_bytes": 1976131072,
+      "parameter_GiB": 1.8404154777526855,
+      "scope": "仅参数张量及普通稠密KV张量自身；不是进程总内存或峰值内存"
+    },
+    "q4": [
+      {
+        "text": "请用一句话解释 attention_mask 的作用。",
+        "max_new_tokens": 8,
+        "warmup_per_condition": 1,
+        "repeats": 5,
+        "clock": "time.perf_counter",
+        "timed_region": "model.generate only; CPU; prefill + decode",
+        "order": "alternating False/True then True/False",
+        "ids_equal": true,
+        "all_repeats_equal": true,
+        "runs": {
+          "False": {
+            "input_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              9
+            ],
+            "output_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773,
+                6529,
+                9999,
+                54851,
+                46944,
+                100751,
+                18493,
+                104949,
+                15946
+              ]
+            ],
+            "output_shape": [
+              1,
+              17
+            ],
+            "new_ids": [
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " attention_mask 是一个用于在模型中",
+            "prefix_preserved": true,
+            "stop_reason": "length_limit",
+            "generated_count_including_eos": 8,
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": false,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643
+            },
+            "seconds": [
+              0.5081748749944381,
+              0.5050696250109468,
+              0.5049613750015851,
+              0.5068915839947294,
+              0.5097484580182936
+            ],
+            "median_seconds": 0.5068915839947294
+          },
+          "True": {
+            "input_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              9
+            ],
+            "output_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773,
+                6529,
+                9999,
+                54851,
+                46944,
+                100751,
+                18493,
+                104949,
+                15946
+              ]
+            ],
+            "output_shape": [
+              1,
+              17
+            ],
+            "new_ids": [
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " attention_mask 是一个用于在模型中",
+            "prefix_preserved": true,
+            "stop_reason": "length_limit",
+            "generated_count_including_eos": 8,
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643
+            },
+            "seconds": [
+              0.28256258298642933,
+              0.2825291660265066,
+              0.2830992079980206,
+              0.28533250000327826,
+              0.28336395797668956
+            ],
+            "median_seconds": 0.2830992079980206
+          }
+        },
+        "observed_speedup": 1.7905086615370314
+      },
+      {
+        "text": "请用一句话解释 attention_mask 的作用。",
+        "max_new_tokens": 16,
+        "warmup_per_condition": 1,
+        "repeats": 5,
+        "clock": "time.perf_counter",
+        "timed_region": "model.generate only; CPU; prefill + decode",
+        "order": "alternating False/True then True/False",
+        "ids_equal": true,
+        "all_repeats_equal": true,
+        "runs": {
+          "False": {
+            "input_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              9
+            ],
+            "output_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773,
+                6529,
+                9999,
+                54851,
+                46944,
+                100751,
+                18493,
+                104949,
+                15946,
+                54542,
+                108260,
+                100674,
+                9370,
+                32665,
+                3837,
+                99652,
+                100751
+              ]
+            ],
+            "output_shape": [
+              1,
+              25
+            ],
+            "new_ids": [
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946,
+              54542,
+              108260,
+              100674,
+              9370,
+              32665,
+              3837,
+              99652,
+              100751
+            ],
+            "new_shape": [
+              1,
+              16
+            ],
+            "new_text": " attention_mask 是一个用于在模型中处理注意力机制的参数，它用于",
+            "prefix_preserved": true,
+            "stop_reason": "length_limit",
+            "generated_count_including_eos": 16,
+            "options": {
+              "max_new_tokens": 16,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": false,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643
+            },
+            "seconds": [
+              1.0140747079858556,
+              1.0155064169957768,
+              1.0214264999958687,
+              1.0162595830042847,
+              1.061389832990244
+            ],
+            "median_seconds": 1.0162595830042847
+          },
+          "True": {
+            "input_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              9
+            ],
+            "output_ids": [
+              [
+                14880,
+                11622,
+                105321,
+                104136,
+                6529,
+                9999,
+                43589,
+                100154,
+                1773,
+                6529,
+                9999,
+                54851,
+                46944,
+                100751,
+                18493,
+                104949,
+                15946,
+                54542,
+                108260,
+                100674,
+                9370,
+                32665,
+                3837,
+                99652,
+                100751
+              ]
+            ],
+            "output_shape": [
+              1,
+              25
+            ],
+            "new_ids": [
+              6529,
+              9999,
+              54851,
+              46944,
+              100751,
+              18493,
+              104949,
+              15946,
+              54542,
+              108260,
+              100674,
+              9370,
+              32665,
+              3837,
+              99652,
+              100751
+            ],
+            "new_shape": [
+              1,
+              16
+            ],
+            "new_text": " attention_mask 是一个用于在模型中处理注意力机制的参数，它用于",
+            "prefix_preserved": true,
+            "stop_reason": "length_limit",
+            "generated_count_including_eos": 16,
+            "options": {
+              "max_new_tokens": 16,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643
+            },
+            "seconds": [
+              0.5348660419986118,
+              0.537878791015828,
+              0.5364143329788931,
+              0.541390375001356,
+              0.5374027089856099
+            ],
+            "median_seconds": 0.5374027089856099
+          }
+        },
+        "observed_speedup": 1.8910577970895512
+      }
+    ]
+  },
+  "limits": "仅CPU单条输入、固定贪心；不把缓存K/V估算当进程峰值，不对GPU/MPS、训练或答案质量作结论；耗时不设速度门槛"
+}
