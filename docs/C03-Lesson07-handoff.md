@@ -1,5 +1,7 @@
 # C03 Lesson07 → Lesson08 交接
 
+> 历史快照。2026-10-30已进入Lesson08并完成课堂检查，当前进度见[Lesson08交接](C03-Lesson08-handoff.md)。
+
 更新日期：2026-10-28（Asia/Shanghai）。当前接续以本文件与[通用交接](handoff.md)为准，早期交接为历史快照。
 
 ## 当前进度

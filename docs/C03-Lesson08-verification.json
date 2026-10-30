@@ -1,0 +1,1283 @@
+{
+  "verified_at": "2026-10-30T15:15:39.073431+08:00",
+  "timezone": "Asia/Shanghai",
+  "provenance": "用户修改后的Lesson08课堂及已有结果逐字节保留；助手在隔离临时目录实际执行两种入口，补充验证器和Markdown。用户说ok了，不登记为四道作业或模块独立验收全部完成。",
+  "checks_passed": 68,
+  "checks": [
+    {
+      "name": "每课仅一个标准课堂文件",
+      "passed": true
+    },
+    {
+      "name": "导入课堂可复用run_one而不执行main",
+      "passed": true
+    },
+    {
+      "name": "空字符串在加载模型前得到明确错误",
+      "passed": true
+    },
+    {
+      "name": "纯空白在加载模型前得到明确错误",
+      "passed": true
+    },
+    {
+      "name": "零上限在加载模型前得到明确错误",
+      "passed": true
+    },
+    {
+      "name": "负上限在加载模型前得到明确错误",
+      "passed": true
+    },
+    {
+      "name": "非整数上限在加载模型前得到明确错误",
+      "passed": true
+    },
+    {
+      "name": "direct_file_outside_project实际执行成功",
+      "passed": true
+    },
+    {
+      "name": "module_from_project_root实际执行成功",
+      "passed": true
+    },
+    {
+      "name": "直接运行与模块运行全部语义记录一致",
+      "passed": true
+    },
+    {
+      "name": "用户已有JSON可解析且与本轮真实运行相符",
+      "passed": true
+    },
+    {
+      "name": "沿用固定模型CPU float32四线程",
+      "passed": true
+    },
+    {
+      "name": "上下文与版本记录齐全",
+      "passed": true
+    },
+    {
+      "name": "三条课堂输入完整保留",
+      "passed": true
+    },
+    {
+      "name": "第1条隐藏表示和logits形状",
+      "passed": true
+    },
+    {
+      "name": "第1条第一步编号与原始logits一致",
+      "passed": true
+    },
+    {
+      "name": "第1条缓存开关编号一致",
+      "passed": true
+    },
+    {
+      "name": "第1条每次重设种子后采样一致",
+      "passed": true
+    },
+    {
+      "name": "第1条课堂三项核对真实通过",
+      "passed": true
+    },
+    {
+      "name": "第1条包含四组实验",
+      "passed": true
+    },
+    {
+      "name": "第1条greedy前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第1条greedy生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第1条greedy解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第1条no_cache前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第1条no_cache生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第1条no_cache解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_a前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_a生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_a解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_b前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_b生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第1条sample_b解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第2条隐藏表示和logits形状",
+      "passed": true
+    },
+    {
+      "name": "第2条第一步编号与原始logits一致",
+      "passed": true
+    },
+    {
+      "name": "第2条缓存开关编号一致",
+      "passed": true
+    },
+    {
+      "name": "第2条每次重设种子后采样一致",
+      "passed": true
+    },
+    {
+      "name": "第2条课堂三项核对真实通过",
+      "passed": true
+    },
+    {
+      "name": "第2条包含四组实验",
+      "passed": true
+    },
+    {
+      "name": "第2条greedy前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第2条greedy生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第2条greedy解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第2条no_cache前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第2条no_cache生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第2条no_cache解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_a前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_a生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_a解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_b前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_b生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第2条sample_b解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第3条隐藏表示和logits形状",
+      "passed": true
+    },
+    {
+      "name": "第3条第一步编号与原始logits一致",
+      "passed": true
+    },
+    {
+      "name": "第3条缓存开关编号一致",
+      "passed": true
+    },
+    {
+      "name": "第3条每次重设种子后采样一致",
+      "passed": true
+    },
+    {
+      "name": "第3条课堂三项核对真实通过",
+      "passed": true
+    },
+    {
+      "name": "第3条包含四组实验",
+      "passed": true
+    },
+    {
+      "name": "第3条greedy前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第3条greedy生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第3条greedy解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第3条no_cache前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第3条no_cache生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第3条no_cache解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_a前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_a生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_a解码与实际停止原因",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_b前缀与新增切片",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_b生成参数受控",
+      "passed": true
+    },
+    {
+      "name": "第3条sample_b解码与实际停止原因",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "hugging_learn/lesson08.py": "48439c36e7093c75845d2fa1864cf00731f6c0ab47cf24e18ca78b9c07b060dd",
+    "hugging_learn/lesson08_results.json": "621597b35369504226eaf82a8608a53845342065a8b0bc20e63a95d888898cab",
+    "hugging_learn/causal_common.py": "f36b5ed8ee51980881498f32e8313d46f7e174d63324b883da7f532bc495b152",
+    "verify_lesson08.py": "7626431ce556d17fc2423c91ea735fe4485b6d429b7338e0315e4fab1dbfee09"
+  },
+  "executions": {
+    "direct_file_outside_project": {
+      "returncode": 0,
+      "recorded_at": "2026-10-30T15:15:31.065474+08:00",
+      "stdout": "\n第 1 条输入：订单金额\n前向形状与第一步选择： {'hidden_shape': [1, 2, 896], 'logits_shape': [1, 2, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 100381}\n\ngreedy\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [100381, 2130, 23305, 9370, 50410, 3837, 85106, 71817]\n新增文本： '超过____元的订单，需要进行'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [100381, 2130, 23305, 9370, 50410, 3837, 85106, 71817]\n新增文本： '超过____元的订单，需要进行'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [9370, 100768, 110322, 20412, 28311, 32, 13, 4891]\n新增文本： '的计算公式是：\\nA. �'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [9370, 100768, 110322, 20412, 28311, 32, 13, 4891]\n新增文本： '的计算公式是：\\nA. �'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n第 2 条输入：查询订单金额\n前向形状与第一步选择： {'hidden_shape': [1, 3, 896], 'logits_shape': [1, 3, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 198}\n\ngreedy\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [198, 51154, 50410, 89656, 198, 51154, 50410, 44091]\n新增文本： '\\n查询订单详情\\n查询订单状态'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [198, 51154, 50410, 89656, 198, 51154, 50410, 44091]\n新增文本： '\\n查询订单详情\\n查询订单状态'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [62926, 100787, 50410, 81800, 198, 30534, 51154, 50410]\n新增文本： '并统计订单数量\\n要查询订单'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [62926, 100787, 50410, 81800, 198, 30534, 51154, 50410]\n新增文本： '并统计订单数量\\n要查询订单'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n第 3 条输入：请统计最近一个月各部门的订单总金额。\n前向形状与第一步选择： {'hidden_shape': [1, 10, 896], 'logits_shape': [1, 10, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 220}\n\ngreedy\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [220, 100012, 100364, 87026, 100787, 104044, 105033, 106852]\n新增文本： ' 为了帮助您统计最近一个月各部门'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [220, 100012, 100364, 87026, 100787, 104044, 105033, 106852]\n新增文本： ' 为了帮助您统计最近一个月各部门'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [84897, 60894, 73670, 6313, 100012, 100787, 104044, 105033]\n新增文本： ' 当然可以！为了统计最近一个月'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [84897, 60894, 73670, 6313, 100012, 100787, 104044, 105033]\n新增文本： ' 当然可以！为了统计最近一个月'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n记录文件： /var/folders/nr/k35f5x4504qf7dsjn76mq4nh0000gn/T/c03-lesson08-_oxlhkd0/hugging_learn/lesson08_results.json\n",
+      "semantic_sha256": "11a7cec1b7e68d76b40e29963323c0c45d947cd9bf913eefd9f44425d6543ab7"
+    },
+    "module_from_project_root": {
+      "returncode": 0,
+      "recorded_at": "2026-10-30T15:15:38.571298+08:00",
+      "stdout": "\n第 1 条输入：订单金额\n前向形状与第一步选择： {'hidden_shape': [1, 2, 896], 'logits_shape': [1, 2, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 100381}\n\ngreedy\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [100381, 2130, 23305, 9370, 50410, 3837, 85106, 71817]\n新增文本： '超过____元的订单，需要进行'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [100381, 2130, 23305, 9370, 50410, 3837, 85106, 71817]\n新增文本： '超过____元的订单，需要进行'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [9370, 100768, 110322, 20412, 28311, 32, 13, 4891]\n新增文本： '的计算公式是：\\nA. �'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 2] [1, 10] [1, 8]\n新增编号： [9370, 100768, 110322, 20412, 28311, 32, 13, 4891]\n新增文本： '的计算公式是：\\nA. �'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n第 2 条输入：查询订单金额\n前向形状与第一步选择： {'hidden_shape': [1, 3, 896], 'logits_shape': [1, 3, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 198}\n\ngreedy\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [198, 51154, 50410, 89656, 198, 51154, 50410, 44091]\n新增文本： '\\n查询订单详情\\n查询订单状态'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [198, 51154, 50410, 89656, 198, 51154, 50410, 44091]\n新增文本： '\\n查询订单详情\\n查询订单状态'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [62926, 100787, 50410, 81800, 198, 30534, 51154, 50410]\n新增文本： '并统计订单数量\\n要查询订单'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 3] [1, 11] [1, 8]\n新增编号： [62926, 100787, 50410, 81800, 198, 30534, 51154, 50410]\n新增文本： '并统计订单数量\\n要查询订单'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n第 3 条输入：请统计最近一个月各部门的订单总金额。\n前向形状与第一步选择： {'hidden_shape': [1, 10, 896], 'logits_shape': [1, 10, 151936], 'last_logits_shape': [1, 151936], 'greedy_first_id': 220}\n\ngreedy\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [220, 100012, 100364, 87026, 100787, 104044, 105033, 106852]\n新增文本： ' 为了帮助您统计最近一个月各部门'\n停止原因： max_new_tokens\n\nno_cache\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [220, 100012, 100364, 87026, 100787, 104044, 105033, 106852]\n新增文本： ' 为了帮助您统计最近一个月各部门'\n停止原因： max_new_tokens\n\nsample_a\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [84897, 60894, 73670, 6313, 100012, 100787, 104044, 105033]\n新增文本： ' 当然可以！为了统计最近一个月'\n停止原因： max_new_tokens\n\nsample_b\n输入/完整输出/新增： [1, 10] [1, 18] [1, 8]\n新增编号： [84897, 60894, 73670, 6313, 100012, 100787, 104044, 105033]\n新增文本： ' 当然可以！为了统计最近一个月'\n停止原因： max_new_tokens\n\n核对结果： {'first_id_matches_logits': True, 'cache_ids_equal': True, 'seeded_sample_ids_equal': True}\n\n记录文件： /private/var/folders/nr/k35f5x4504qf7dsjn76mq4nh0000gn/T/c03-lesson08-_oxlhkd0/hugging_learn/lesson08_results.json\n",
+      "semantic_sha256": "11a7cec1b7e68d76b40e29963323c0c45d947cd9bf913eefd9f44425d6543ab7"
+    }
+  },
+  "classroom": {
+    "recorded_at": "2026-10-30T15:15:31.065474+08:00",
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "python": "3.11.16",
+    "versions": {
+      "torch": "2.14.0",
+      "transformers": "5.20.2",
+      "huggingface_hub": "2.2.0",
+      "tokenizers": "0.23.3"
+    },
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "num_threads": 4,
+    "attention_implementation": "sdpa",
+    "max_position_embeddings": 32768,
+    "samples": [
+      {
+        "text": "订单金额",
+        "probe": {
+          "hidden_shape": [
+            1,
+            2,
+            896
+          ],
+          "logits_shape": [
+            1,
+            2,
+            151936
+          ],
+          "last_logits_shape": [
+            1,
+            151936
+          ],
+          "greedy_first_id": 100381
+        },
+        "checks": {
+          "first_id_matches_logits": true,
+          "cache_ids_equal": true,
+          "seeded_sample_ids_equal": true
+        },
+        "runs": {
+          "greedy": {
+            "text": "订单金额",
+            "input_ids": [
+              [
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              2
+            ],
+            "output_ids": [
+              [
+                50410,
+                80094,
+                100381,
+                2130,
+                23305,
+                9370,
+                50410,
+                3837,
+                85106,
+                71817
+              ]
+            ],
+            "output_shape": [
+              1,
+              10
+            ],
+            "new_ids": [
+              100381,
+              2130,
+              23305,
+              9370,
+              50410,
+              3837,
+              85106,
+              71817
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "超过____元的订单，需要进行",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "no_cache": {
+            "text": "订单金额",
+            "input_ids": [
+              [
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              2
+            ],
+            "output_ids": [
+              [
+                50410,
+                80094,
+                100381,
+                2130,
+                23305,
+                9370,
+                50410,
+                3837,
+                85106,
+                71817
+              ]
+            ],
+            "output_shape": [
+              1,
+              10
+            ],
+            "new_ids": [
+              100381,
+              2130,
+              23305,
+              9370,
+              50410,
+              3837,
+              85106,
+              71817
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "超过____元的订单，需要进行",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": false,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "sample_a": {
+            "text": "订单金额",
+            "input_ids": [
+              [
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              2
+            ],
+            "output_ids": [
+              [
+                50410,
+                80094,
+                9370,
+                100768,
+                110322,
+                20412,
+                28311,
+                32,
+                13,
+                4891
+              ]
+            ],
+            "output_shape": [
+              1,
+              10
+            ],
+            "new_ids": [
+              9370,
+              100768,
+              110322,
+              20412,
+              28311,
+              32,
+              13,
+              4891
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "的计算公式是：\nA. �",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          },
+          "sample_b": {
+            "text": "订单金额",
+            "input_ids": [
+              [
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              2
+            ],
+            "output_ids": [
+              [
+                50410,
+                80094,
+                9370,
+                100768,
+                110322,
+                20412,
+                28311,
+                32,
+                13,
+                4891
+              ]
+            ],
+            "output_shape": [
+              1,
+              10
+            ],
+            "new_ids": [
+              9370,
+              100768,
+              110322,
+              20412,
+              28311,
+              32,
+              13,
+              4891
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "的计算公式是：\nA. �",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          }
+        }
+      },
+      {
+        "text": "查询订单金额",
+        "probe": {
+          "hidden_shape": [
+            1,
+            3,
+            896
+          ],
+          "logits_shape": [
+            1,
+            3,
+            151936
+          ],
+          "last_logits_shape": [
+            1,
+            151936
+          ],
+          "greedy_first_id": 198
+        },
+        "checks": {
+          "first_id_matches_logits": true,
+          "cache_ids_equal": true,
+          "seeded_sample_ids_equal": true
+        },
+        "runs": {
+          "greedy": {
+            "text": "查询订单金额",
+            "input_ids": [
+              [
+                51154,
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              3
+            ],
+            "output_ids": [
+              [
+                51154,
+                50410,
+                80094,
+                198,
+                51154,
+                50410,
+                89656,
+                198,
+                51154,
+                50410,
+                44091
+              ]
+            ],
+            "output_shape": [
+              1,
+              11
+            ],
+            "new_ids": [
+              198,
+              51154,
+              50410,
+              89656,
+              198,
+              51154,
+              50410,
+              44091
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "\n查询订单详情\n查询订单状态",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "no_cache": {
+            "text": "查询订单金额",
+            "input_ids": [
+              [
+                51154,
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              3
+            ],
+            "output_ids": [
+              [
+                51154,
+                50410,
+                80094,
+                198,
+                51154,
+                50410,
+                89656,
+                198,
+                51154,
+                50410,
+                44091
+              ]
+            ],
+            "output_shape": [
+              1,
+              11
+            ],
+            "new_ids": [
+              198,
+              51154,
+              50410,
+              89656,
+              198,
+              51154,
+              50410,
+              44091
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "\n查询订单详情\n查询订单状态",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": false,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "sample_a": {
+            "text": "查询订单金额",
+            "input_ids": [
+              [
+                51154,
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              3
+            ],
+            "output_ids": [
+              [
+                51154,
+                50410,
+                80094,
+                62926,
+                100787,
+                50410,
+                81800,
+                198,
+                30534,
+                51154,
+                50410
+              ]
+            ],
+            "output_shape": [
+              1,
+              11
+            ],
+            "new_ids": [
+              62926,
+              100787,
+              50410,
+              81800,
+              198,
+              30534,
+              51154,
+              50410
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "并统计订单数量\n要查询订单",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          },
+          "sample_b": {
+            "text": "查询订单金额",
+            "input_ids": [
+              [
+                51154,
+                50410,
+                80094
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              3
+            ],
+            "output_ids": [
+              [
+                51154,
+                50410,
+                80094,
+                62926,
+                100787,
+                50410,
+                81800,
+                198,
+                30534,
+                51154,
+                50410
+              ]
+            ],
+            "output_shape": [
+              1,
+              11
+            ],
+            "new_ids": [
+              62926,
+              100787,
+              50410,
+              81800,
+              198,
+              30534,
+              51154,
+              50410
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": "并统计订单数量\n要查询订单",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          }
+        }
+      },
+      {
+        "text": "请统计最近一个月各部门的订单总金额。",
+        "probe": {
+          "hidden_shape": [
+            1,
+            10,
+            896
+          ],
+          "logits_shape": [
+            1,
+            10,
+            151936
+          ],
+          "last_logits_shape": [
+            1,
+            151936
+          ],
+          "greedy_first_id": 220
+        },
+        "checks": {
+          "first_id_matches_logits": true,
+          "cache_ids_equal": true,
+          "seeded_sample_ids_equal": true
+        },
+        "runs": {
+          "greedy": {
+            "text": "请统计最近一个月各部门的订单总金额。",
+            "input_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              10
+            ],
+            "output_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773,
+                220,
+                100012,
+                100364,
+                87026,
+                100787,
+                104044,
+                105033,
+                106852
+              ]
+            ],
+            "output_shape": [
+              1,
+              18
+            ],
+            "new_ids": [
+              220,
+              100012,
+              100364,
+              87026,
+              100787,
+              104044,
+              105033,
+              106852
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " 为了帮助您统计最近一个月各部门",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "no_cache": {
+            "text": "请统计最近一个月各部门的订单总金额。",
+            "input_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              10
+            ],
+            "output_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773,
+                220,
+                100012,
+                100364,
+                87026,
+                100787,
+                104044,
+                105033,
+                106852
+              ]
+            ],
+            "output_shape": [
+              1,
+              18
+            ],
+            "new_ids": [
+              220,
+              100012,
+              100364,
+              87026,
+              100787,
+              104044,
+              105033,
+              106852
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " 为了帮助您统计最近一个月各部门",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": false,
+              "num_beams": 1,
+              "use_cache": false,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false
+            },
+            "seed": null
+          },
+          "sample_a": {
+            "text": "请统计最近一个月各部门的订单总金额。",
+            "input_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              10
+            ],
+            "output_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773,
+                84897,
+                60894,
+                73670,
+                6313,
+                100012,
+                100787,
+                104044,
+                105033
+              ]
+            ],
+            "output_shape": [
+              1,
+              18
+            ],
+            "new_ids": [
+              84897,
+              60894,
+              73670,
+              6313,
+              100012,
+              100787,
+              104044,
+              105033
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " 当然可以！为了统计最近一个月",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          },
+          "sample_b": {
+            "text": "请统计最近一个月各部门的订单总金额。",
+            "input_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773
+              ]
+            ],
+            "attention_mask": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "input_shape": [
+              1,
+              10
+            ],
+            "output_ids": [
+              [
+                14880,
+                100787,
+                104044,
+                105033,
+                106852,
+                9370,
+                50410,
+                59743,
+                80094,
+                1773,
+                84897,
+                60894,
+                73670,
+                6313,
+                100012,
+                100787,
+                104044,
+                105033
+              ]
+            ],
+            "output_shape": [
+              1,
+              18
+            ],
+            "new_ids": [
+              84897,
+              60894,
+              73670,
+              6313,
+              100012,
+              100787,
+              104044,
+              105033
+            ],
+            "new_shape": [
+              1,
+              8
+            ],
+            "new_text": " 当然可以！为了统计最近一个月",
+            "stop_reason": "max_new_tokens",
+            "options": {
+              "max_new_tokens": 8,
+              "do_sample": true,
+              "num_beams": 1,
+              "use_cache": true,
+              "eos_token_id": 151643,
+              "pad_token_id": 151643,
+              "return_dict_in_generate": false,
+              "temperature": 0.8,
+              "top_k": 20,
+              "top_p": 0.9
+            },
+            "seed": 42
+          }
+        }
+      }
+    ]
+  },
+  "limits": "固定CPU与已缓存基础模型；三条文本依次运行，每条四组实验。未验证作业2的4/8上限全组合、作业3的0.5/1.2温度对照、作业4的聊天批量；不作跨环境随机一致性、生成质量或模块独立能力结论。"
+}

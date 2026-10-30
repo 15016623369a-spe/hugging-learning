@@ -1,8 +1,8 @@
-# C03 课程交接（截至 Lesson07）
+# C03 课程交接（截至 Lesson08 课堂检查）
 
-更新日期：2026-10-28（Asia/Shanghai）。
+更新日期：2026-10-30（Asia/Shanghai）。
 
-本文件保留Lesson01–06历史验收结果，更新到Lesson07四题答案已给出、43项本地检查通过。当前接续文档为[Lesson07→08交接](C03-Lesson07-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
+本文件保留Lesson01–07历史验收结果，更新到Lesson08已授课及68项课堂检查通过。当前入口为[Lesson08交接](C03-Lesson08-handoff.md)。早期交接中的未开始状态属于历史快照，不能覆盖当前进度。
 
 ## 1. 接续入口
 
@@ -10,7 +10,7 @@
 
 **C03 Lesson01 已讲授，四道作业答案已提供，用户索要答案按约定接受为私下完成确认；用户原课堂脚本已检查，27 项本地检查通过。** 原文件、助手补充和运行证据分别记录，不把参考答案当成用户原有独立实现。
 
-**最新接续位置：Lesson06已讲授，四题详细答案已给出；用户索要答案按既有约定登记私下完成确认。课堂与参考代码完成40项检查，实际执行批量生成、模板与手动历史。随后Lesson07已授课、四题答案已给出，本轮43项检查通过，索要答案按约定登记私下完成确认；下一次要求“下一节课”时进入Lesson08。** Lesson08 尚未开始。
+**最新接续位置：Lesson01–07已授课、给过四题答案并有运行证据。Lesson08已授课，用户修正三条文本的逐条循环后确认ok，本轮68项课堂检查通过；代码和已有结果逐字节保留。作业2/3/4剩余对照及模块独立验收未在本轮完成，后续按Lesson08交接继续。**
 
 ## 2. 教学约定
 
@@ -242,7 +242,7 @@ Lesson05当时接续Lesson06；后者现已授课与复核，最新结果见第1
 
 运行：`python -m hugging_learn.lesson06`、`python -m hugging_learn.homework.lesson06_answers`、`python verify_lesson06.py --report /tmp/c03-lesson06-verification.json`。
 
-Lesson07 已在聊天讲授推理资源与复现：上下文预算、KVcache缓存内容与形状、cache开关对照、内存、耗时、版本和实验记录；本轮四题答案与43项检查完成，用户索要答案按约定登记私下完成确认。下一课为Lesson08。继续按用户要求详细推导、逐段逐行讲解，最后统一四题；只有明确要求同步才更新GitHub。
+Lesson07 已在聊天讲授推理资源与复现：上下文预算、KVcache缓存内容与形状、cache开关对照、内存、耗时、版本和实验记录；本轮四题答案与43项检查完成，用户索要答案按约定登记私下完成确认。当时接续Lesson08，现已授课并完成课堂检查，详见第14节。继续按用户要求详细推导、逐段逐行讲解，最后统一四题；只有明确要求同步才更新GitHub。
 
 ## 13. Lesson07最新结果与Lesson08接续
 
@@ -252,4 +252,17 @@ Lesson07 已在聊天讲授推理资源与复现：上下文预算、KVcache缓�
 
 用户曾两次遇到直接运行的包导入问题。后续教师代码必须从开始就兼容Path/sys导入与项目根路径处理，不能再增加转发入口；原代码与学习注释保留。
 
-资料：[课堂](../hugging_learn/lesson07.py)、[完整四题代码](../hugging_learn/homework/lesson07_answers.py)、[题解](C03-Lesson07-homework.md)、[验收](C03-Lesson07-acceptance.md)、[运行JSON](C03-Lesson07-verification.json)、[最新交接](C03-Lesson07-handoff.md)。下一课Lesson08尚未开始。
+资料：[课堂](../hugging_learn/lesson07.py)、[完整四题代码](../hugging_learn/homework/lesson07_answers.py)、[题解](C03-Lesson07-homework.md)、[验收](C03-Lesson07-acceptance.md)、[运行JSON](C03-Lesson07-verification.json)、[当时交接](C03-Lesson07-handoff.md)。Lesson08的当前进度见第14节。
+
+
+## 14. Lesson08课堂检查与当前接续
+
+2026-10-30用户要求检查文件并更新GitHub。本轮lesson08.py已将texts列表逐条循环；模型只加载一次，每条各做前向探针、四组生成和三项核对，最后保存samples。原源码、所有注释与用户已有lesson08_results.json逐字节保留。
+
+验证器在隔离目录实际执行项目外直接文件启动和项目根模块启动，68项检查通过；输入长度2/3/10，新增8，完整10/11/18。缓存开关编号相同，同种子重设后采样相同；已有结果除时间外与新运行一致。本轮68项是综合课堂检查数量，不能与此前43项四题检查混为同一范围。
+
+用户曾遇到批量argmax三个编号无法item、list无法strip的错误，已按单条函数加外层循环修正；右补齐末列可能是PAD，Mask不会自动移动索引。下划线接收暂不使用的config也已解释。
+
+四题中三条文本已在课堂执行，输入边界由验证器补充；作业2的4-token缓存组合、作业3的0.5/1.2温度、作业4聊天批量尚未在本轮执行。用户说ok与本轮文件检查，不自动登记为全部作业答案或模块独立验收完成。不新建聊天，不虚构后续C04课表。
+
+资料：[课堂](../hugging_learn/lesson08.py)、[用户结果](../hugging_learn/lesson08_results.json)、[讲义](C03-Lesson08-notes.md)、[四题与范围](C03-Lesson08-homework.md)、[验收](C03-Lesson08-acceptance.md)、[检查JSON](C03-Lesson08-verification.json)、[当前交接](C03-Lesson08-handoff.md)、[验证器](../verify_lesson08.py)。

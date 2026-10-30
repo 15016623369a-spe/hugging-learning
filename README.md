@@ -2,11 +2,23 @@
 
 从真实 Tokenizer 接续 Transformer 基础，学习 Hugging Face 模型推理与文本生成。
 
-更新日期：2026-10-28（Asia/Shanghai）。C03 Lesson01–07 已授课、四题参考答案已给出并完成本地检查；Lesson07本轮43项检查通过，索要答案按既有约定登记私下完成确认。下一课为Lesson08，尚未开始。
+更新日期：2026-10-30（Asia/Shanghai）。C03 Lesson01–07 已授课、四题参考答案已给出并完成本地检查。Lesson08已授课，用户修改后的三条文本课堂通过68项检查，两种启动方式和已有JSON均已复核；四题与模块独立验收范围见当前交接。
 
 课堂文件统一命名为 `hugging_learn/lessonXX.py`，每课只保留一份课堂实现；作业参考放在 `hugging_learn/homework/`。Lesson01、Lesson06 已完成[重复文件合并](docs/C03-file-organization.md)。
 
-## 最近完成验收：Lesson07
+## 最近检查：Lesson08
+
+将文本编码、模型前向、贪心/采样、缓存对照、输出切片和环境记录整合为可运行程序。三条输入依次处理，模型只加载一次。
+
+- [课堂代码](hugging_learn/lesson08.py)与[用户保存结果](hugging_learn/lesson08_results.json)
+- [详细讲义与三条输入报错说明](docs/C03-Lesson08-notes.md)
+- [四道练习及当前完成范围](docs/C03-Lesson08-homework.md)
+- [检查与来源](docs/C03-Lesson08-acceptance.md)、[实际验证JSON](docs/C03-Lesson08-verification.json)
+- [当前交接](docs/C03-Lesson08-handoff.md)
+
+68项检查通过。输入长度2/3/10，新增均为8，完整长度10/11/18；缓存开关编号一致，种子重设的重复采样一致。用户课堂源码、注释与已有结果文件逐字节保留。作业2/3/4剩余对照未在本轮执行，课堂通过与独立验收分别记录。
+
+## Lesson07资料
 
 观察Prefill与逐token Decode，核对缓存开关，计算KV资源，并在固定CPU环境记录8/16-token的重复计时。
 
@@ -125,11 +137,13 @@ python verify_lesson06.py --report /tmp/c03-lesson06-verification.json
 python -m hugging_learn.lesson07
 python -m hugging_learn.homework.lesson07_answers --report /tmp/c03-lesson07-answers.json
 python verify_lesson07.py --report /tmp/c03-lesson07-verification.json
+python -m hugging_learn.lesson08
+python verify_lesson08.py --report /tmp/c03-lesson08-verification.json
 ```
 
-课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson07.py`、`python hugging_learn/homework/lesson07_answers.py`。
+课堂与作业也支持编辑器直接运行；例如 `python hugging_learn/lesson08.py`、`python hugging_learn/homework/lesson07_answers.py`。
 
-当前机器已有 Lesson01–07 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
+当前机器已有 Lesson01–08 所需缓存，以上入口只读本地缓存；验证器按参数写入结果 JSON。新机器首次使用时，先核对解释器和依赖，按需要安装，再联网准备：
 
 ```sh
 python -m pip install -r requirements.txt
@@ -148,7 +162,10 @@ python -m hugging_learn.download_model
 - Lesson05：沿用同一固定模型；38 项检查通过，已实际执行 generate 贪心与采样。max_length 实验显式清除模型自带 max_new_tokens；温度与过滤的教学分数另列。
 - Lesson06：沿用同一基础模型；40 项检查通过，实际执行批量与逐条生成、模板编码、手动历史。PAD/EOS 同号，消息结束标记与生成 EOS 分开记录；手工 EOS/PAD 示例不作为自然生成轨迹。
 
-截至 Lesson06 已执行手写循环、generate 贪心/采样、批量生成和聊天模板；没有训练、Instruct权重质量评估或性能测量。助手参考代码运行通过、用户完成确认与独立实现分别记录。
+- Lesson07：固定CPU环境下完成43项检查，实际记录缓存与重复计时；详见该课证据。
+- Lesson08：68项检查通过，三条普通文本逐条运行四组实验，两种入口与已有结果一致；四题剩余对照和模块独立验收尚未补做。
+
+截至 Lesson08 已执行手写循环、generate贪心/采样、批量与模板、KV缓存和CPU计时，以及综合实验记录；没有训练或Instruct权重质量验收。助手参考代码运行通过、用户完成确认与独立实现分别记录。
 
 聊天为主要课堂。用户要求更详细：先回顾与说明动机，再用具体数字推导、标明张量形状、逐段逐行解释代码、解读实测结果与常见错误，最后统一给出作业。后续课程和 GitHub 同步按用户指令推进。
 

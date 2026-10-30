@@ -1,0 +1,982 @@
+{
+  "recorded_at": "2026-10-30T15:08:31.935561+08:00",
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "python": "3.11.16",
+  "versions": {
+    "torch": "2.14.0",
+    "transformers": "5.20.2",
+    "huggingface_hub": "2.2.0",
+    "tokenizers": "0.23.3"
+  },
+  "device": "cpu",
+  "dtype": "torch.float32",
+  "num_threads": 4,
+  "attention_implementation": "sdpa",
+  "max_position_embeddings": 32768,
+  "samples": [
+    {
+      "text": "订单金额",
+      "probe": {
+        "hidden_shape": [
+          1,
+          2,
+          896
+        ],
+        "logits_shape": [
+          1,
+          2,
+          151936
+        ],
+        "last_logits_shape": [
+          1,
+          151936
+        ],
+        "greedy_first_id": 100381
+      },
+      "checks": {
+        "first_id_matches_logits": true,
+        "cache_ids_equal": true,
+        "seeded_sample_ids_equal": true
+      },
+      "runs": {
+        "greedy": {
+          "text": "订单金额",
+          "input_ids": [
+            [
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_ids": [
+            [
+              50410,
+              80094,
+              100381,
+              2130,
+              23305,
+              9370,
+              50410,
+              3837,
+              85106,
+              71817
+            ]
+          ],
+          "output_shape": [
+            1,
+            10
+          ],
+          "new_ids": [
+            100381,
+            2130,
+            23305,
+            9370,
+            50410,
+            3837,
+            85106,
+            71817
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "超过____元的订单，需要进行",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "no_cache": {
+          "text": "订单金额",
+          "input_ids": [
+            [
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_ids": [
+            [
+              50410,
+              80094,
+              100381,
+              2130,
+              23305,
+              9370,
+              50410,
+              3837,
+              85106,
+              71817
+            ]
+          ],
+          "output_shape": [
+            1,
+            10
+          ],
+          "new_ids": [
+            100381,
+            2130,
+            23305,
+            9370,
+            50410,
+            3837,
+            85106,
+            71817
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "超过____元的订单，需要进行",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "sample_a": {
+          "text": "订单金额",
+          "input_ids": [
+            [
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_ids": [
+            [
+              50410,
+              80094,
+              9370,
+              100768,
+              110322,
+              20412,
+              28311,
+              32,
+              13,
+              4891
+            ]
+          ],
+          "output_shape": [
+            1,
+            10
+          ],
+          "new_ids": [
+            9370,
+            100768,
+            110322,
+            20412,
+            28311,
+            32,
+            13,
+            4891
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "的计算公式是：\nA. �",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        },
+        "sample_b": {
+          "text": "订单金额",
+          "input_ids": [
+            [
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            2
+          ],
+          "output_ids": [
+            [
+              50410,
+              80094,
+              9370,
+              100768,
+              110322,
+              20412,
+              28311,
+              32,
+              13,
+              4891
+            ]
+          ],
+          "output_shape": [
+            1,
+            10
+          ],
+          "new_ids": [
+            9370,
+            100768,
+            110322,
+            20412,
+            28311,
+            32,
+            13,
+            4891
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "的计算公式是：\nA. �",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        }
+      }
+    },
+    {
+      "text": "查询订单金额",
+      "probe": {
+        "hidden_shape": [
+          1,
+          3,
+          896
+        ],
+        "logits_shape": [
+          1,
+          3,
+          151936
+        ],
+        "last_logits_shape": [
+          1,
+          151936
+        ],
+        "greedy_first_id": 198
+      },
+      "checks": {
+        "first_id_matches_logits": true,
+        "cache_ids_equal": true,
+        "seeded_sample_ids_equal": true
+      },
+      "runs": {
+        "greedy": {
+          "text": "查询订单金额",
+          "input_ids": [
+            [
+              51154,
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            3
+          ],
+          "output_ids": [
+            [
+              51154,
+              50410,
+              80094,
+              198,
+              51154,
+              50410,
+              89656,
+              198,
+              51154,
+              50410,
+              44091
+            ]
+          ],
+          "output_shape": [
+            1,
+            11
+          ],
+          "new_ids": [
+            198,
+            51154,
+            50410,
+            89656,
+            198,
+            51154,
+            50410,
+            44091
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "\n查询订单详情\n查询订单状态",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "no_cache": {
+          "text": "查询订单金额",
+          "input_ids": [
+            [
+              51154,
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            3
+          ],
+          "output_ids": [
+            [
+              51154,
+              50410,
+              80094,
+              198,
+              51154,
+              50410,
+              89656,
+              198,
+              51154,
+              50410,
+              44091
+            ]
+          ],
+          "output_shape": [
+            1,
+            11
+          ],
+          "new_ids": [
+            198,
+            51154,
+            50410,
+            89656,
+            198,
+            51154,
+            50410,
+            44091
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "\n查询订单详情\n查询订单状态",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "sample_a": {
+          "text": "查询订单金额",
+          "input_ids": [
+            [
+              51154,
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            3
+          ],
+          "output_ids": [
+            [
+              51154,
+              50410,
+              80094,
+              62926,
+              100787,
+              50410,
+              81800,
+              198,
+              30534,
+              51154,
+              50410
+            ]
+          ],
+          "output_shape": [
+            1,
+            11
+          ],
+          "new_ids": [
+            62926,
+            100787,
+            50410,
+            81800,
+            198,
+            30534,
+            51154,
+            50410
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "并统计订单数量\n要查询订单",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        },
+        "sample_b": {
+          "text": "查询订单金额",
+          "input_ids": [
+            [
+              51154,
+              50410,
+              80094
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            3
+          ],
+          "output_ids": [
+            [
+              51154,
+              50410,
+              80094,
+              62926,
+              100787,
+              50410,
+              81800,
+              198,
+              30534,
+              51154,
+              50410
+            ]
+          ],
+          "output_shape": [
+            1,
+            11
+          ],
+          "new_ids": [
+            62926,
+            100787,
+            50410,
+            81800,
+            198,
+            30534,
+            51154,
+            50410
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": "并统计订单数量\n要查询订单",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        }
+      }
+    },
+    {
+      "text": "请统计最近一个月各部门的订单总金额。",
+      "probe": {
+        "hidden_shape": [
+          1,
+          10,
+          896
+        ],
+        "logits_shape": [
+          1,
+          10,
+          151936
+        ],
+        "last_logits_shape": [
+          1,
+          151936
+        ],
+        "greedy_first_id": 220
+      },
+      "checks": {
+        "first_id_matches_logits": true,
+        "cache_ids_equal": true,
+        "seeded_sample_ids_equal": true
+      },
+      "runs": {
+        "greedy": {
+          "text": "请统计最近一个月各部门的订单总金额。",
+          "input_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            10
+          ],
+          "output_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773,
+              220,
+              100012,
+              100364,
+              87026,
+              100787,
+              104044,
+              105033,
+              106852
+            ]
+          ],
+          "output_shape": [
+            1,
+            18
+          ],
+          "new_ids": [
+            220,
+            100012,
+            100364,
+            87026,
+            100787,
+            104044,
+            105033,
+            106852
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " 为了帮助您统计最近一个月各部门",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "no_cache": {
+          "text": "请统计最近一个月各部门的订单总金额。",
+          "input_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            10
+          ],
+          "output_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773,
+              220,
+              100012,
+              100364,
+              87026,
+              100787,
+              104044,
+              105033,
+              106852
+            ]
+          ],
+          "output_shape": [
+            1,
+            18
+          ],
+          "new_ids": [
+            220,
+            100012,
+            100364,
+            87026,
+            100787,
+            104044,
+            105033,
+            106852
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " 为了帮助您统计最近一个月各部门",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": false,
+            "num_beams": 1,
+            "use_cache": false,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false
+          },
+          "seed": null
+        },
+        "sample_a": {
+          "text": "请统计最近一个月各部门的订单总金额。",
+          "input_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            10
+          ],
+          "output_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773,
+              84897,
+              60894,
+              73670,
+              6313,
+              100012,
+              100787,
+              104044,
+              105033
+            ]
+          ],
+          "output_shape": [
+            1,
+            18
+          ],
+          "new_ids": [
+            84897,
+            60894,
+            73670,
+            6313,
+            100012,
+            100787,
+            104044,
+            105033
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " 当然可以！为了统计最近一个月",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        },
+        "sample_b": {
+          "text": "请统计最近一个月各部门的订单总金额。",
+          "input_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773
+            ]
+          ],
+          "attention_mask": [
+            [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "input_shape": [
+            1,
+            10
+          ],
+          "output_ids": [
+            [
+              14880,
+              100787,
+              104044,
+              105033,
+              106852,
+              9370,
+              50410,
+              59743,
+              80094,
+              1773,
+              84897,
+              60894,
+              73670,
+              6313,
+              100012,
+              100787,
+              104044,
+              105033
+            ]
+          ],
+          "output_shape": [
+            1,
+            18
+          ],
+          "new_ids": [
+            84897,
+            60894,
+            73670,
+            6313,
+            100012,
+            100787,
+            104044,
+            105033
+          ],
+          "new_shape": [
+            1,
+            8
+          ],
+          "new_text": " 当然可以！为了统计最近一个月",
+          "stop_reason": "max_new_tokens",
+          "options": {
+            "max_new_tokens": 8,
+            "do_sample": true,
+            "num_beams": 1,
+            "use_cache": true,
+            "eos_token_id": 151643,
+            "pad_token_id": 151643,
+            "return_dict_in_generate": false,
+            "temperature": 0.8,
+            "top_k": 20,
+            "top_p": 0.9
+          },
+          "seed": 42
+        }
+      }
+    }
+  ]
+}
